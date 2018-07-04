@@ -11,7 +11,10 @@ The NPD database contains information on more than 7500 wells, 4000 surveys,
  ![NPD I/O library](https://petroware.no/images/NpdIoBox.250.png)
 
 NPD I/O is a Java library for accessing this information through a clean and
-simple to use Java API.
+simple to use Java API. NPD I/O is available for Java (NpdIo.jar).
+The library is lightweight (< 100kB) and self-contained; It has no external
+dependencies. NPD I/O access data directly through HTTP - no login or
+password is required.
 
 
 ### Setup ###
