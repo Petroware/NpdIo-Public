@@ -1,15 +1,17 @@
 # NPD I/O - NPD access library #
 
-The NPD module is a library for providing the [NPD fact pages](http://factpages.npd.no/factpages/)
-information through a clean and simple Java API.
+The [Norwegian Petroleum Directorate (NPD)](http://npd.no)
+maintains a comprehensive database of the activities in the North Sea.
+This is public real-time information updated on a daily basis and
+made public through the [NPD fact pages](http://factpages.npd.no/factpages/).
 
-![NPD I/O library](https://petroware.no/images/NpdIoBox.250.png)
+The NPD database contains information on more than 7500 wells, 4000 surveys,
+120 fields, 1000 facilities, 700 companies, 1200 licenses and more.
 
-The library reads information from CSV pages whitin the fact pages web site.
-The exact location (URL) of the CSV pages are not built into NPD I/O in order
-to stay robust for URL changes. If the CSV structure change however, Log I/O
-must adapt accordingly and be rebuilt. Such changes are infrequent, but typically
-announced by the NPD well ahead.
+ ![NPD I/O library](https://petroware.no/images/NpdIoBox.250.png)
+
+NPD I/O is a Java library for accessing this information through a clean and
+simple to use Java API.
 
 
 ### Setup ###
