@@ -28,12 +28,12 @@ $ git clone https://github.com/Petroware/NpdIo.git
 ```
 
 
-### Dependencies
+## Dependencies
 
 NPD I/O has no external dependenies.
 
 
-### Building NPD I/O
+## Building NPD I/O
 
 NPD I/O can be built from its root folder by
 
@@ -48,7 +48,7 @@ The NPD I/O delivery will be the `./lib/NpdIo.jar` file.
 Building with make requires the make module of the tools repository.
 
 
-### Creating Javadoc
+## Creating Javadoc
 
 Public Javadoc: https://petroware.no/npdio/javadoc/index.html
 
