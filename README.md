@@ -1,4 +1,4 @@
-# NPD I/O - NPD access library #
+# NPD I/O - NPD access library
 
 The [Norwegian Petroleum Directorate (NPD)](http://npd.no)
 maintains a comprehensive database of the activities in the North Sea.
@@ -28,12 +28,12 @@ $ git clone https://github.com/Petroware/NpdIo.git
 ```
 
 
-## Dependencies
+### Dependencies
 
 NPD I/O has no external dependenies.
 
 
-## Building NPD I/O
+### Building NPD I/O
 
 NPD I/O can be built from its root folder by
 
@@ -48,7 +48,7 @@ The NPD I/O delivery will be the `./lib/NpdIo.jar` file.
 Building with make requires the make module of the tools repository.
 
 
-## Creating Javadoc
+### Creating Javadoc
 
 Public Javadoc: https://petroware.no/npdio/javadoc/index.html
 
@@ -66,7 +66,7 @@ Note also that there is some Javadoc configuration in `./Makefile`. The Javadoc 
 automatically date stamped. The Javadoc date (current month) is specified in the Makefile.
 
 
-## Programmin examples
+## Programming examples
 
 Below are a few examples on how to access some of the main data types from the NPD database.
 
