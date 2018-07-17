@@ -68,9 +68,8 @@ automatically date stamped. The Javadoc date (current month) is specified in the
 
 ## Programming examples
 
-NPD I/O access data through HTTP. The exact URL for each data type tend to
-changed over the years so these are not built into the library, but should
-instead be provided by the client.
+NPD I/O access data through HTTP. As the URL for each data may change over time,
+they are nor built in to the library, but should be provided by the client application.
 
 Below are the correct URLs for each data type:
 
