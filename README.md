@@ -70,7 +70,26 @@ automatically date stamped. The Javadoc date (current month) is specified in the
 
 Below are a few examples on how to access some of the main data types from the NPD database.
 
-Correct URLs for each NPD data type is available through the NPD web page.
+NPD I/O access data through HTTP. The exact URL for each data type has
+changed over the years so these are not built into the library, but should
+instead be provided by the client.
+
+Below is the correct URLs for each data type:
+
+| Data type               | URL                    |
+|-------------------------|------------------------|
+| NpdCompanies            | http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
+| NpdDevelopmentWellbores | http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
+| NpdExplorationWellbores | http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
+| NpdFields               | http://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
+| NpdFixedFacilities      | http://factpages.npd.no/ReportServer?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
+| NpdLicenses             | http://factpages.npd.no/ReportServer?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
+| NpdMoveableFacilities   | http://factpages.npd.no/ReportServer?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
+| NpdOtherWellbores       | http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
+| NpdProduction           | http://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
+| NpdSurveys              | http://factpages.npd.no/ReportServer?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
+|-------------------------|------------------------|
+
 
 ```java
    import no.petroware.npdio.field.*;
@@ -80,14 +99,7 @@ Correct URLs for each NPD data type is available through the NPD web page.
    //
    // Read development NPD wellbores
    //
-   String url = "http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_development_all" + "&" +
-                "rs:Command=Render" + "&" +
-                "rc:Toolbar=false" + "&" +
-                "rc:Parameters=f" + "&" +
-                "rs:Format=CSV" + "&" +
-                "Top100=false" + "&" +
-                "IpAddress=80.239.106.206" + "&" +
-                "CultureCode=en";
+   String url = "http://factpages.npd.no/..."; // See table above
    List<NpdWellbore> npdWellbores = NpdWellDataReader.readDevelopmentWellbores(url);
 
    // Loop over the wellbores and write to stdout
@@ -100,11 +112,11 @@ Correct URLs for each NPD data type is available through the NPD web page.
    //
    // Read NPD fields
    //
-   String url = ...
+   String url = "http://factpages.npd.no/..."; // See table above
    List<NpdField> npdFields = NpdFieldReader.readFields(url);
 
    // Read production data for all fields
-   String url = ...
+   String url = "http://factpages.npd.no/..."; // See table above
    ProductionReader.readProduction(url, npdFields);
 
    // Loop over the fields and write oil production to stdout
