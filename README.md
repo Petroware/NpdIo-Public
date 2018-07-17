@@ -68,13 +68,11 @@ automatically date stamped. The Javadoc date (current month) is specified in the
 
 ## Programming examples
 
-Below are a few examples on how to access some of the main data types from the NPD database.
-
-NPD I/O access data through HTTP. The exact URL for each data type has
+NPD I/O access data through HTTP. The exact URL for each data type tend to
 changed over the years so these are not built into the library, but should
 instead be provided by the client.
 
-Below is the correct URLs for each data type:
+Below are the correct URLs for each data type:
 
 | Data type               | URL                    |
 |-------------------------|------------------------|
@@ -88,8 +86,9 @@ Below is the correct URLs for each data type:
 | NpdOtherWellbores       | http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
 | NpdProduction           | http://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
 | NpdSurveys              | http://factpages.npd.no/ReportServer?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
-|-------------------------|------------------------|
 
+
+Below are a few examples on how to access some of the main data types from the NPD database.
 
 ```java
    import no.petroware.npdio.field.*;
