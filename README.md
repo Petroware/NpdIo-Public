@@ -74,15 +74,9 @@ instead be provided by the client.
 
 Below are the correct URLs for each data type:
 
-<table>
-  <tr><td>NpdCompany</td><td><nobr>http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</nobr></td></tr>
-  <tr><td>NpdCompany</td><td>http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</td></tr>
-</table>
-
-
 | Data type                   | URL                    |
 |-----------------------------|------------------------|
-| ``NpdCompany``              | <nobr>``http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en``</nobr> |
+| ``NpdCompany``              | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
 | ``NpdDevelopmentWellbore``  | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
 | ``NpdExplorationWellbore``  | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
 | ``NpdField``                | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
