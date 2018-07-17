@@ -87,6 +87,7 @@ Below are the correct URLs for each data type:
 | ``NpdSurvey``               | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
 
 
+<p>
 Below are a few examples on how to access some of the main data types from the NPD database.
 
 ```java
@@ -97,7 +98,7 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read development NPD wellbores
    //
-   String url = "http://factpages.npd.no/..."; // See table above
+   String url = "http://factpages.npd.no/..."; // Use NpdDevelopmentWellbore link from table above
    List<NpdWellbore> npdWellbores = NpdWellDataReader.readDevelopmentWellbores(url);
 
    // Loop over the wellbores and write to stdout
@@ -110,11 +111,11 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read NPD fields
    //
-   String url = "http://factpages.npd.no/..."; // See table above
+   String url = "http://factpages.npd.no/..."; // Use NpdField link from table above
    List<NpdField> npdFields = NpdFieldReader.readFields(url);
 
    // Read production data for all fields
-   String url = "http://factpages.npd.no/..."; // See table above
+   String url = "http://factpages.npd.no/..."; // Use NpdProduction link from table above
    ProductionReader.readProduction(url, npdFields);
 
    // Loop over the fields and write oil production to stdout
