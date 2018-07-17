@@ -75,7 +75,7 @@ instead be provided by the client.
 Below are the correct URLs for each data type:
 
 <table>
-  <tr><td>NpdCompany</td><td>http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</td></tr>
+  <tr><td>NpdCompany</td><td><nobr>http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</nobr></td></tr>
   <tr><td>NpdCompany</td><td>http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</td></tr>
 </table>
 
