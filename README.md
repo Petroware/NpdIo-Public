@@ -77,15 +77,15 @@ Below are the correct URLs for each data type:
 | Data type               | URL                    |
 |-------------------------|------------------------|
 | <pre>NpdCompany</pre>              | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</pre>
-| NpdDevelopmentWellbore  | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
-| NpdExplorationWellbore  | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
-| NpdField                | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
-| NpdFixedFacility        | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
-| NpdLicense              | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
-| NpdMoveableFacility     | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en
-| NpdOtherWellbore        | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en
-| NpdProduction           | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
-| NpdSurvey               | ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en
+| <pre>NpdDevelopmentWellbore</pre>  | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</pre>
+| <pre>NpdExplorationWellbore</pre>  | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</pre>
+| <pre>NpdField</pre>                | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</pre>
+| <pre>NpdFixedFacility</pre>        | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</pre>
+| <pre>NpdLicense</pre>              | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</pre>
+| <pre>NpdMoveableFacility</pre>     | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en</pre>
+| <pre>NpdOtherWellbore</pre>        | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en</pre>
+| <pre>NpdProduction</pre>           | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</pre>
+| <pre>NpdSurvey</pre>               | <pre>ht&#8203;tp://factpages.npd.no/ReportServer?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en</pre>
 
 
 Below are a few examples on how to access some of the main data types from the NPD database.
