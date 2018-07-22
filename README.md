@@ -8,7 +8,7 @@ made public through the [NPD fact pages](http://factpages.npd.no/factpages/).
 The NPD database contains information on more than 7500 wells, 4000 surveys,
 120 fields, 1000 facilities, 700 companies, 1200 licenses and more.
 
- ![NPD I/O library](https://petroware.no/images/NpdIoBox.250.png)
+<img hspace="100" src="https://petroware.no/images/NpdIoBox.250.png">
 
 NPD I/O is a Java library for accessing this information through a clean and
 simple to use Java API. NPD I/O is available for Java (NpdIo.jar).
@@ -141,3 +141,16 @@ done asynchronous in threads. The NPD I/O library is all thread-safe.
 NPD I/O includes Java implementations for the NPD data types _wellbore_, _license_,
 _field_, _company_, _survey_, _facility_, _discovery_, _business arrangement area_,
 _pipeline_ and _stratigraphy_.
+
+
+# About Petroware
+
+Petroware AS is a software company within the data management, data analytics,
+petrophysics, geology and reservoir engineering domains.
+Petroware creates highly advanced software components and end-user products that
+acts as a research platform within software architecture and scalability, system design,
+parallelism and multi-threading, user experience (UX) and usability analysis as well
+as development methodologies and techniques.
+
+**Petroware AS**<br>
+[https://petroware.no](https://petroware.no)
