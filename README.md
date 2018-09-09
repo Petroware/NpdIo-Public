@@ -33,37 +33,9 @@ $ git clone https://github.com/Petroware/NpdIo.git
 NPD I/O has no external dependenies.
 
 
-## Building NPD I/O
-
-NPD I/O can be built from its root folder by
-
-```
-$ make clean
-$ make
-$ make jar
-```
-
-The NPD I/O delivery will be the `./lib/NpdIo.jar` file.
-
-Building with make requires the make module of the tools repository.
-
-
-## Creating Javadoc
+## Javadoc
 
 Public Javadoc: https://petroware.no/npdio/javadoc/index.html
-
-Javadoc can be created locally by:
-
-```
-$ make javadoc
-```
-
-Entry point will be `./docs/index.html`.
-
-Note the `./overview.html` page that becomes part of the Javadoc.
-
-Note also that there is some Javadoc configuration in `./Makefile`. The Javadoc is not
-automatically date stamped. The Javadoc date (current month) is specified in the Makefile.
 
 
 ## Programming examples
@@ -147,12 +119,14 @@ _pipeline_ and _stratigraphy_.
 
 Petroware AS is a software company within the data management, data analytics,
 petrophysics, geology and reservoir engineering domains.
+
 Petroware creates highly advanced software components and end-user products that
 acts as a research platform within software architecture and scalability, system design,
 parallelism and multi-threading, user experience (UX) and usability analysis as well
 as development methodologies and techniques.
 
 **Petroware AS**<br>
+Stavanger - Norway<br>
 [https://petroware.no](https://petroware.no)<br>
 info@petroware.no
 
