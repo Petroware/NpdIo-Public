@@ -38,6 +38,19 @@ NPD I/O has no external dependenies.
 Public Javadoc: https://petroware.no/npdio/javadoc/index.html
 
 
+## Example application
+
+This video shows how NPD I/O can be used inside an application.
+The example is taken from [Log Studio](https://petroware.no/logstudio.html) from Petroware.
+
+<iframe width="560" height="315"
+        src="https://www.youtube.com/embed/z2kM-H1VF_Y?rel=0"
+        frameborder="0"
+        allow="autoplay;
+        encrypted-media" allowfullscreen>
+</iframe>
+
+
 ## Programming examples
 
 NPD I/O access data through HTTP. As the URL for each data may change over time,
