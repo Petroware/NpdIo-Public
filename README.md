@@ -45,10 +45,10 @@ This video shows how NPD I/O can be used in an application:
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=z2kM-H1VF_Y"
    target="_blank">
    <img src="http://img.youtube.com/vi/z2kM-H1VF_Y/0.jpg" alt="YouTube video"
-   hspace="100" width="360" border="10"/>
+   hspace="100" width="500" border="10"/>
 </a>
 
-The example is taken from [Log Studio](https://petroware.no/logstudio.html) from [Petroware](https://petroware.no).
+The example is taken from the [Log Studio](https://petroware.no/logstudio.html) from [Petroware](https://petroware.no).
 
 
 ## Programming examples
