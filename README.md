@@ -40,10 +40,15 @@ Public Javadoc: https://petroware.no/npdio/javadoc/index.html
 
 ## Example application
 
-This video shows how NPD I/O can be used inside an application.
-The example is taken from [Log Studio](https://petroware.no/logstudio.html) from Petroware.
+This video shows how NPD I/O can be used in an application:
 
-[![YouTune video](https://img.youtube.com/vi/z2kM-H1VF_Y/0.jpg)](https://www.youtube.com/watch?v=z2kM-H1VF_Y)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=z2kM-H1VF_Y"
+   target="_blank">
+   <img src="http://img.youtube.com/vi/z2kM-H1VF_Y/0.jpg" alt="YouTube video"
+   hspace="100" width="240" height="180" border="10"/>
+</a>
+
+The example is taken from [Log Studio](https://petroware.no/logstudio.html) from [Petroware](https://petroware.no).
 
 
 ## Programming examples
