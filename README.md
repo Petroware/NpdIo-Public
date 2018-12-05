@@ -128,7 +128,7 @@ _field_, _company_, _survey_, _facility_, _discovery_, _business arrangement are
 _pipeline_ and _stratigraphy_.
 
 
-# About Petroware
+## About Petroware
 
 Petroware AS is a software company within the data management, data analytics,
 petrophysics, geology and reservoir engineering domains.
