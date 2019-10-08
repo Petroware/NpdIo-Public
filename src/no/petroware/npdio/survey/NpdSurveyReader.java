@@ -38,16 +38,17 @@ public final class NpdSurveyReader
   private static final int PLANNED_COMPLETE_DATE_INDEX = 11;
   private static final int START_DATE_INDEX = 12;
   private static final int COMPLETE_DATE_INDEX = 13;
-  private static final int PLANNED_TOTAL_LENGTH_BOAT_INDEX = 14;
-  private static final int PLANNED_TOTAL_LENGTH_CDP_INDEX = 15;
-  private static final int TOTAL_AREA_INDEX = 16;
-  private static final int IS_AVAILABLE_INDEX = 17;
-  private static final int IS_SAMPLING_DONE_INDEX = 18;
-  private static final int IS_SHALLOW_DRILLING_DONE_INDEX = 19;
-  private static final int IS_GEOTECHNICAL_MEASUREMENT_DONE_INDEX = 20;
-  private static final int FACT_PAGE_URL_INDEX = 21;
-  private static final int FACT_MAP_URL_INDEX = 22;
-  private static final int DATE_SYNCED_INDEX = 23;
+  private static final int PLANNED_TOTAL_LENGTH_CDP_INDEX = 14;
+  private static final int PLANNED_TOTAL_LENGTH_BOAT_INDEX = 15;
+  private static final int NET_AREA_PLANNED_INDEX = 16;
+  private static final int NET_AREA_ACTUAL_INDEX = 17;
+  private static final int IS_AVAILABLE_INDEX = 18;
+  private static final int IS_SAMPLING_DONE_INDEX = 19;
+  private static final int IS_SHALLOW_DRILLING_DONE_INDEX = 20;
+  private static final int IS_GEOTECHNICAL_MEASUREMENT_DONE_INDEX = 21;
+  private static final int FACT_PAGE_URL_INDEX = 22;
+  private static final int FACT_MAP_URL_INDEX = 23;
+  private static final int DATE_SYNCED_INDEX = 24;
 
   /** The logger instance */
   private static final Logger logger_ = Logger.getLogger(NpdSurveyReader.class.getName());
@@ -71,7 +72,7 @@ public final class NpdSurveyReader
   private static NpdSurvey newNpdSurvey(String[] tokens)
     throws ParseException
   {
-    if (tokens.length != 24)
+    if (tokens.length != 25)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     //
@@ -91,9 +92,10 @@ public final class NpdSurveyReader
     Date plannedCompleteDate = Util.parseDate(tokens[PLANNED_COMPLETE_DATE_INDEX]);
     Date startDate = Util.parseDate(tokens[START_DATE_INDEX]);
     Date completeDate = Util.parseDate(tokens[COMPLETE_DATE_INDEX]);
-    Double plannedTotalLengthBoat = Util.parseDouble(tokens[PLANNED_TOTAL_LENGTH_BOAT_INDEX]);
     Double plannedTotalLengthCdp = Util.parseDouble(tokens[PLANNED_TOTAL_LENGTH_CDP_INDEX]);
-    Double totalArea = Util.parseDouble(tokens[TOTAL_AREA_INDEX]);
+    Double plannedTotalLengthBoat = Util.parseDouble(tokens[PLANNED_TOTAL_LENGTH_BOAT_INDEX]);
+    Double netAreaPlanned = Util.parseDouble(tokens[NET_AREA_PLANNED_INDEX]);
+    Double netAreaActual = Util.parseDouble(tokens[NET_AREA_ACTUAL_INDEX]);
     Boolean isAvailable = Util.parseBoolean(tokens[IS_AVAILABLE_INDEX]);
     Boolean isSamplingDone = Util.parseBoolean(tokens[IS_SAMPLING_DONE_INDEX]);
     Boolean isShallowDrillingDone = Util.parseBoolean(tokens[IS_SHALLOW_DRILLING_DONE_INDEX]);
@@ -116,9 +118,10 @@ public final class NpdSurveyReader
                          plannedCompleteDate,
                          startDate,
                          completeDate,
-                         plannedTotalLengthBoat,
                          plannedTotalLengthCdp,
-                         totalArea,
+                         plannedTotalLengthBoat,
+                         netAreaPlanned,
+                         netAreaActual,
                          isAvailable,
                          isSamplingDone,
                          isShallowDrillingDone,

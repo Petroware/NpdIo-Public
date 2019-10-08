@@ -60,16 +60,16 @@ Below are the correct URLs for each data type:
 
 | Data type                   | URL                    |
 |-----------------------------|------------------------|
-| ``NpdCompany``              | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdDevelopmentWellbore``  | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdExplorationWellbore``  | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdField``                | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdFixedFacility``        | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdLicense``              | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-| ``NpdMoveableFacility``     | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdOtherWellbore``        | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdProduction``           | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-| ``NpdSurvey``               | ``http://factpages.npd.no/ReportServer?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdCompany``              | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdDevelopmentWellbore``  | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdExplorationWellbore``  | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdField``                | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdFixedFacility``        | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdLicense``              | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdMoveableFacility``     | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdOtherWellbore``        | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdProduction``           | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdSurvey``               | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
 
 
 <p>

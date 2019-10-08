@@ -61,12 +61,13 @@ public final class NpdFacilityReader
   private static final int M_RESPONSIBLE_COMPANY_NAME_INDEX = 1;
   private static final int M_KIND_INDEX = 2;
   private static final int M_FUNCTIONS_INDEX = 3;
-  private static final int M_NATION_INDEX = 4;
-  private static final int M_FACT_PAGE_URL_INDEX = 5;
-  private static final int M_NPDID_INDEX = 6;
-  private static final int M_RESPONSIBLE_COMPANY_ID_INDEX = 7;
-  private static final int M_DATE_UPDATED_INDEX = 8;
-  private static final int M_SYNC_DATE_INDEX = 9;
+  private static final int M_AOC_STATUS_INDEX = 4;
+  private static final int M_NATION_INDEX = 5;
+  private static final int M_FACT_PAGE_URL_INDEX = 6;
+  private static final int M_NPDID_INDEX = 7;
+  private static final int M_RESPONSIBLE_COMPANY_ID_INDEX = 8;
+  private static final int M_DATE_UPDATED_INDEX = 9;
+  private static final int M_SYNC_DATE_INDEX = 10;
 
   /** NPD date format description */
   private static final String DATE_FORMAT = "dd.MM.yyyy";
@@ -93,7 +94,7 @@ public final class NpdFacilityReader
   {
     assert tokens != null : "tokens cannot be null";
 
-    if (tokens.length != 10)
+    if (tokens.length != 11)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     String npdId = tokens[M_NPDID_INDEX];
@@ -101,6 +102,7 @@ public final class NpdFacilityReader
     String responsibleCompanyId = tokens[M_RESPONSIBLE_COMPANY_ID_INDEX];
     String kind = tokens[M_KIND_INDEX];
     String functions = tokens[M_FUNCTIONS_INDEX];
+    String aocStatus = tokens[M_AOC_STATUS_INDEX];
     String nation = tokens[M_NATION_INDEX];
     String factPageUrl = tokens[M_FACT_PAGE_URL_INDEX];
     Date lastChangedDate = Util.parseDate(tokens[M_DATE_UPDATED_INDEX]);
@@ -111,6 +113,7 @@ public final class NpdFacilityReader
                                    responsibleCompanyId,
                                    kind,
                                    functions,
+                                   aocStatus,
                                    nation,
                                    factPageUrl,
                                    lastChangedDate,
@@ -219,7 +222,7 @@ public final class NpdFacilityReader
       // Skip past the header line
       reader.readLine();
 
-      // Read line by line. There is data for one wellbore per line
+      // Read line by line. There is data for one facility per line
       while (true) {
         String line = reader.readLine();
 

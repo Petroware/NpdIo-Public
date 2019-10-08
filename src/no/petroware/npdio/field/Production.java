@@ -200,7 +200,7 @@ public final class Production
   /**
    * Comparator for production entry instances.
    *
-   * @author <a href="mailto:jacob.dreyer@petroware.no">Jacob Dreyer</a>
+   * @author <a href="mailto:info@petroware.no">Petroware AS</a>
    */
   private static final class EntryComparator
     implements Comparator<Entry>, Serializable
@@ -217,4 +217,3 @@ public final class Production
     }
   }
 }
-

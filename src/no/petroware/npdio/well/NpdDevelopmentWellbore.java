@@ -21,6 +21,8 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
 
   private final String npdidFacilityProducing_;
 
+  private final String npdidTargetProductionLicense_;
+
   NpdDevelopmentWellbore(String npdId,
                          String name,
                          String wellName,
@@ -54,6 +56,9 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
                          Integer entryYear,
                          Integer completionYear,
                          String reclassFromWellbore,
+                         Date pluggedAndAbandonDate,
+                         Date pluggedDate,
+                         String licenseTargetName,
                          Integer plotSymbol,
                          String geodeticDatum,
                          Integer nsDeg,
@@ -86,10 +91,13 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
                          String npdidProductionLicense,
                          String npdidFacilityDrilling,
                          String npdidWellboreReclass,
+                         Date mainLevelUpdatedDate,
+                         Date updatedDate,
                          Date syncDate,
                          String productionFacility,
                          String contentPlanned,
-                         String npdidFacilityProducing)
+                         String npdidFacilityProducing,
+                         String npdidTargetProductionLicense)
   {
     super("wellbore_development",
           npdId,
@@ -123,6 +131,12 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
           entryYear,
           completionYear,
           reclassFromWellbore,
+          null, // reclassificationDate
+          null, // siteSurvey
+          null, // npdidSiteSurvey
+          pluggedAndAbandonDate,
+          pluggedDate,
+          licenseTargetName,
           plotSymbol,
           geodeticDatum,
           nsDeg,
@@ -155,6 +169,8 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
           npdidProductionLicense,
           npdidFacilityDrilling,
           npdidWellboreReclass,
+          mainLevelUpdatedDate,
+          updatedDate,
           syncDate);
 
     productionFacility_ = productionFacility;
@@ -162,6 +178,7 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
     npdidFacilityProducing_ = npdidFacilityProducing;
     preDrillEntryDate_ = preDrillEntryDate;
     preDrillCompletionDate_ = preDrillCompletionDate;
+    npdidTargetProductionLicense_ = npdidTargetProductionLicense;
   }
 
   /**
@@ -243,5 +260,23 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   public String getNpdidFacilityProducing()
   {
     return npdidFacilityProducing_;
+  }
+
+  /**
+   * Return ID of the target production license.
+   * <p>
+   * NPDID production licence target.
+   * <p>
+   * NPD unique key for the production licence of the wellbore tareget.
+   * This can be another production licence then where the wellhead
+   * position.
+   * <p>
+   * int, corresponds to the NPD property <em>prlNpdidProdLicenceTarget</em>.
+   *
+   * @return  ID of the target production license. Null if N/A.
+   */
+  public String getNpdidTargetProductionLicense()
+  {
+    return npdidTargetProductionLicense_;
   }
 }

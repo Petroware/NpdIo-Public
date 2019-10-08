@@ -9,6 +9,9 @@ import java.util.Date;
  */
 public final class NpdMoveableFacility extends NpdFacility
 {
+  /** AOC status of the facility. */
+  private final String aocStatus_;
+
   /** Unique ID of responsible company. Null if none or unknown. */
   private final String responsibleCompanyId_;
 
@@ -20,6 +23,7 @@ public final class NpdMoveableFacility extends NpdFacility
                       String responsibleCompanyId,
                       String kind,
                       String functions,
+                      String aocStatus,
                       String nation,
                       String factPageUrl,
                       Date lastChangedDate,
@@ -27,12 +31,23 @@ public final class NpdMoveableFacility extends NpdFacility
   {
     super("facility_moveable", npdId, name, kind, functions, factPageUrl, null,  lastChangedDate, syncDate);
 
+    aocStatus_ = aocStatus;
     responsibleCompanyId_ = responsibleCompanyId;
     nation_ = nation;
   }
 
   /**
-   * NPD unique ID of current responsible company of this facility.
+   * Return the AOC status of this facility.
+   *
+   * @return  AOC status of this facility. Null if none or unknown.
+   */
+  public String getAocStatus()
+  {
+    return aocStatus_;
+  }
+
+  /**
+   * Return NPD unique ID of current responsible company of this facility.
    *
    * @return  NPD ID of responsible company. Null if none or unknown.
    */

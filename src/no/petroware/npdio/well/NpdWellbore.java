@@ -41,6 +41,46 @@ public class NpdWellbore extends NpdObject
   private final Integer entryYear_;
   private final Integer completionYear_;
   private final String reclassFromWellbore_;
+
+  /**
+   * Date when the wellbore was reclassified from exploration wellbore to
+   * development wellbore or reverse.
+   */
+  private final Date reclassificationDate_;
+
+  /**
+   * Name of the site survey as reported to NPD in system for reporting
+   * site surveys, seismic and electromagnetic activities.
+   */
+  private final String siteSurvey_;
+
+  /**
+   * NPDID for the site survey
+   */
+
+  private final String npdidSiteSurvey_;
+
+  /**
+   * Plugged and abondon date.
+   * <p>
+   * datetime
+   */
+  private final Date pluggedAndAbandonDate_;
+
+  /**
+   * Plugged date.
+   * <p>
+   * datetime
+   */
+  private final Date pluggedDate_;
+
+  /**
+   * Prod. licence for drilling target
+   * <p>
+   * varchar(10)
+   */
+  private final String licenseTargetName_;
+
   private final Integer plotSymbol_;
   private final String geodeticDatum_;
   private final Integer nsDeg_;
@@ -71,6 +111,8 @@ public class NpdWellbore extends NpdObject
   private final String npdidProductionLicense_;
   private final String npdidFacilityDrilling_;
   private final String npdidWellboreReclass_;
+  private final Date mainLevelUpdatedDate_;
+  private final Date updatedDate_;
 
   NpdWellbore(String type,
               String npdId,
@@ -104,6 +146,12 @@ public class NpdWellbore extends NpdObject
               Integer entryYear,
               Integer completionYear,
               String reclassFromWellbore,
+              Date reclassificationDate,
+              String siteSurvey,
+              String npdidSiteSurvey,
+              Date pluggedAndAbandonDate,
+              Date pluggedDate,
+              String licenseTargetName,
               Integer plotSymbol,
               String geodeticDatum,
               Integer nsDeg,
@@ -136,6 +184,8 @@ public class NpdWellbore extends NpdObject
               String npdidProductionLicense,
               String npdidFacilityDrilling,
               String npdidWellboreReclass,
+              Date mainLevelUpdatedDate,
+              Date updatedDate,
               Date syncDate)
   {
     super(type, npdId, name, factPageUrl, factMapUrl, null, syncDate);
@@ -155,6 +205,8 @@ public class NpdWellbore extends NpdObject
     drillPermit_ = drillPermit;
     discovery_ = discovery;
     isDiscoveryWellbore_ = isDiscoveryWellbore;
+    siteSurvey_ = siteSurvey;
+    npdidSiteSurvey_ = npdidSiteSurvey;
     kellyBushElevation_ = kellyBushElevation;
     finalVerticalDepth_ = finalVerticalDepth;
     totalDepth_ = totalDepth;
@@ -169,6 +221,10 @@ public class NpdWellbore extends NpdObject
     entryYear_ = entryYear;
     completionYear_ = completionYear;
     reclassFromWellbore_ = reclassFromWellbore;
+    reclassificationDate_ = reclassificationDate != null ? new Date(reclassificationDate.getTime()) : null;
+    pluggedAndAbandonDate_ = pluggedAndAbandonDate != null ? new Date(pluggedAndAbandonDate.getTime()) : null;
+    pluggedDate_ = pluggedDate != null ? new Date(pluggedDate.getTime()) : null;
+    licenseTargetName_ = licenseTargetName;
     plotSymbol_ = plotSymbol;
     geodeticDatum_ = geodeticDatum;
     nsDeg_ = nsDeg;
@@ -199,6 +255,8 @@ public class NpdWellbore extends NpdObject
     npdidProductionLicense_ = npdidProductionLicense;
     npdidFacilityDrilling_ = npdidFacilityDrilling;
     npdidWellboreReclass_ = npdidWellboreReclass;
+    mainLevelUpdatedDate_ = mainLevelUpdatedDate;
+    updatedDate_ = updatedDate;
   }
 
   /**
@@ -734,6 +792,92 @@ public class NpdWellbore extends NpdObject
   }
 
   /**
+   * Return the reclassification date of this wellbore.
+   * <p>
+   * Date when the wellbore was reclassified from exploration wellbore to
+   * development wellbore or reverse.
+   * <p>
+   * datetime, corresponds to the NPD property <em>wlbDateReclass</em>.
+   *
+   * @return  Reclassification date of this wellbore. Null if N/A.
+   */
+  public Date getReclassificationDate()
+  {
+    return reclassificationDate_ != null ? new Date(reclassificationDate_.getTime()) : null;
+  }
+
+  /**
+   * Return the site survey of this wellbore.
+   * <p>
+   * Name of the sitesurvey as reported to NPD in system for reporting
+   * sitesurveys, seismic and electromagnetic activities.
+   * <p>
+   * varchar(100), corresponds to NPD property <em>wlbSiteSurvey</em>.
+   *
+   * @return  Site survey of this wellbore. Null if N/A.
+   */
+  public String getSiteSurvey()
+  {
+    return siteSurvey_;
+  }
+
+  /**
+   * Return the ID of the site survey of this wellbore.
+   * <p>
+   * NPDID for the site survey.
+   * <p>
+   * int, corresponds to NPD property <em>wlbNpdidSiteSurvey</em>.
+   *
+   * @return  Site survey of this wellbore. Null if N/A.
+   */
+  public String getNpdidSiteSurvey()
+  {
+    return npdidSiteSurvey_;
+  }
+
+  /**
+   * Return the plugged and abandon date of this wellbore.
+   * <p>
+   * Plugged and abondon date.
+   * <p>
+   * datetime, corresponds to the NPD property <em>wlbPluggedAbandonDate</em>.
+   *
+   * @return  Plugged and abandon date for this wellbore. Null if N/A.
+   */
+  public Date getPluggedAndAbandonDate()
+  {
+    return pluggedAndAbandonDate_ != null ? new Date(pluggedAndAbandonDate_.getTime()) : null;
+  }
+
+  /**
+   * Return the plugged date of this wellbore.
+   * <p>
+   * Plugged date.
+   * <p>
+   * datetime, corresponds to the NPD property <em>wlbPluggedDate</em>.
+   *
+   * @return  Plugged date for this wellbore. Null if N/A.
+   */
+  public Date getPluggedDate()
+  {
+    return pluggedDate_ != null ? new Date(pluggedDate_.getTime()) : null;
+  }
+
+  /**
+   * Return the name of the production license of this wellbore.
+   * <p>
+   * Prod. licence for drilling target.
+   * <p>
+   * varchar(10), corresponds to the NPD property <em>wlbLicenseTargetName</em>.
+   *
+   * @return  License target name of this wellbore. Null if N/A.
+   */
+  public String getLicenseTargetName()
+  {
+    return licenseTargetName_;
+  }
+
+  /**
    * Plot symbol of this wellbore.
    * <p>
    * NPD's plot symbol number for wellbores.
@@ -1194,5 +1338,37 @@ public class NpdWellbore extends NpdObject
   public String getNpdidWellboreReclass()
   {
     return npdidWellboreReclass_;
+  }
+
+  /**
+   * Return main level updated date of this wellbore.
+   * <p>
+   * Date when information about this wellbore was last updated or inserted
+   * for the first time. The date will only be changed if the data in the
+   * 'Main level' in the tab 'Wellbore' will be changed.
+   * <p>
+   * datetime, corresponds to the NPD property <em>wlbDateUpdated</em>
+   *
+   * @return  The main level updated date of this wellbore. Null if N/A.
+   */
+  public Date getMainLevelUpdatedDate()
+  {
+    return mainLevelUpdatedDate_ != null ? new Date(mainLevelUpdatedDate_.getTime()) : null;
+  }
+
+  /**
+   * Return updated date of this wellbore.
+   * <p>
+   * Date when any information about this wellbore was last updated or inserted
+   * for the first time. The date also will bli change if some of the data
+   * in the 'Sub levels' in the tab 'Wellbore' will be changed.
+   * <p>
+   * datetime, corresponds to the NPD property <em>wlbDateUpdatedMax</em>
+   *
+   * @return The updated date of this wellbore.
+   */
+  public Date getUpdatedDate()
+  {
+    return updatedDate_ != null ? new Date(updatedDate_.getTime()) : null;
   }
 }

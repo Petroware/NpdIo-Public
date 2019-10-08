@@ -130,7 +130,14 @@ public final class NpdSurvey extends NpdObject
    * <p>
    * decimal
    */
-  private final Double totalArea_;
+  private final Double netAreaPlanned_;
+
+  /**
+   * Actual net area as reported by the company - 3D/4D [km2]
+   * <p>
+   * decimal
+   */
+  private final Double netAreaActual_;
 
   /**
    * Indicator which tells if the survey is classified as market available
@@ -180,7 +187,8 @@ public final class NpdSurvey extends NpdObject
             Date completeDate,
             Double plannedTotalLengthBoat,
             Double plannedTotalLengthCdp,
-            Double totalArea,
+            Double netAreaPlanned,
+            Double netAreaActual,
             Boolean isAvailable,
             Boolean isSamplingDone,
             Boolean isShallowDrillingDone,
@@ -205,7 +213,8 @@ public final class NpdSurvey extends NpdObject
     completeDate_ = completeDate != null ? new Date(completeDate.getTime()) : null;
     plannedTotalLengthBoat_ = plannedTotalLengthBoat;
     plannedTotalLengthCdp_ = plannedTotalLengthCdp;
-    totalArea_ = totalArea;
+    netAreaPlanned_ = netAreaPlanned;
+    netAreaActual_ = netAreaActual;
     isAvailable_ = isAvailable;
     isSamplingDone_ = isSamplingDone;
     isShallowDrillingDone_ = isShallowDrillingDone;
@@ -419,11 +428,22 @@ public final class NpdSurvey extends NpdObject
    * Return planned net area for the survey.
    * Calculated by NPD map tool if 3D or 4D.
    *
-   * @return  Survey area in km2. Null if unknown or unspecified.
+   * @return  Survey planned area in km2. Null if unknown or unspecified.
    */
-  public Double getTotalArea()
+  public Double getNetAreaPlanned()
   {
-    return totalArea_;
+    return netAreaPlanned_;
+  }
+
+  /**
+   * Return actual area for the survey.
+   * Actual net area as reported by the company - 3D/4D.
+   *
+   * @return  Survey actual area in km2. Null if unknown or unspecified.
+   */
+  public Double getNetAreaActual()
+  {
+    return netAreaPlanned_;
   }
 
   /**

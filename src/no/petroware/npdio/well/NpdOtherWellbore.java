@@ -49,6 +49,11 @@ public final class NpdOtherWellbore extends NpdWellbore
                    Integer entryYear,
                    Integer completionYear,
                    String reclassFromWellbore,
+                   String siteSurvey,
+                   String npdidSiteSurvey,
+                   Date pluggedAndAbandonDate,
+                   Date pluggedDate,
+                   String licenseTargetName,
                    Integer plotSymbol,
                    String geodeticDatum,
                    Integer nsDeg,
@@ -81,7 +86,11 @@ public final class NpdOtherWellbore extends NpdWellbore
                    String npdidProductionLicense,
                    String npdidFacilityDrilling,
                    String npdidWellboreReclass,
+                   Date mainLevelUpdatedDate,
+                   Date updatedDate,
                    Date syncDate,
+
+                   // Other wellbore specific
                    String seismicLocation)
   {
     super("wellbore_other",
@@ -116,6 +125,12 @@ public final class NpdOtherWellbore extends NpdWellbore
           entryYear,
           completionYear,
           reclassFromWellbore,
+          null, // reclassificationDate
+          siteSurvey,
+          npdidSiteSurvey,
+          pluggedAndAbandonDate,
+          pluggedDate,
+          licenseTargetName,
           plotSymbol,
           geodeticDatum,
           nsDeg,
@@ -148,6 +163,8 @@ public final class NpdOtherWellbore extends NpdWellbore
           npdidProductionLicense,
           npdidFacilityDrilling,
           npdidWellboreReclass,
+          mainLevelUpdatedDate,
+          updatedDate,
           syncDate);
 
     seismicLocation_ = seismicLocation;

@@ -48,71 +48,77 @@ public final class NpdWellboreReader
   private static final int E_DISCOVERY_INDEX = 13;
   private static final int E_DISCOVERY_WELLBORE_INDEX = 14;
   private static final int E_BOTTOM_HOLE_TEMPERATURE_INDEX = 15;
-  private static final int E_SEISMIC_LOCATION_INDEX = 16;
-  private static final int E_MAX_INCLINATION_INDEX = 17;
-  private static final int E_KELLY_BUSH_ELEVATION_INDEX = 18;
-  private static final int E_FINAL_VERTICAL_DEPTH_INDEX = 19;
-  private static final int E_TOTAL_DEPTH_INDEX = 20;
-  private static final int E_WATER_DEPTH_INDEX = 21;
-  private static final int E_KICK_OFF_POINT = 22;
-  private static final int E_AGE_AT_TD_INDEX = 23;
-  private static final int E_FORMATION_AT_TD_INDEX = 24;
-  private static final int E_MAIN_AREA_INDEX = 25;
-  private static final int E_DRILLING_FACILITY_INDEX = 26;
-  private static final int E_FACILITY_TYPE_DRILLING_INDEX = 27;
-  private static final int E_DRILLING_FACILITY_FIXED_OR_MOVEABLE = 28;
-  private static final int E_LICENSING_ACTIVITY_INDEX = 29;
-  private static final int E_MULTILATERAL_INDEX = 30;
-  private static final int E_PURPOSE_PLANNED_INDEX = 31;
-  private static final int E_ENTRY_YEAR_INDEX = 32;
-  private static final int E_COMPLETION_YEAR_INDEX = 33;
-  private static final int E_RECLASS_FROM_WELLBORE_INDEX = 34;
-  private static final int E_REENTRYEXPLORATIONACTIVITY_INDEX = 35;
-  private static final int E_PLOT_SYMBOL_INDEX = 36;
-  private static final int E_FORMATION_WITH_HC1_INDEX = 37;
-  private static final int E_AGE_WITH_HC1_INDEX = 38;
-  private static final int E_FORMATION_WITH_HC2_INDEX = 39;
-  private static final int E_AGE_WITH_HC2_INDEX = 40;
-  private static final int E_FORMATION_WITH_HC3_INDEX = 41;
-  private static final int E_AGE_WITH_HC3_INDEX = 42;
-  private static final int E_DRILLING_DAYS_INDEX = 43;
-  private static final int E_REENTRY_INDEX = 44;
-  private static final int E_GEODETIC_DATUM_INDEX = 45;
-  private static final int E_NS_DEG_INDEX = 46;
-  private static final int E_NS_MIN_INDEX = 47;
-  private static final int E_NS_SEC_INDEX = 48;
-  private static final int E_NS_CODE_INDEX = 49;
-  private static final int E_EW_DEG_INDEX = 50;
-  private static final int E_EW_MIN_INDEX = 51;
-  private static final int E_EW_SEC_INDEX = 52;
-  private static final int E_EW_CODE_INDEX = 53;
-  private static final int E_LATITUDE_INDEX = 54;
-  private static final int E_LONGITUDE_INDEX = 55;
-  private static final int E_NS_UTM_INDEX = 56;
-  private static final int E_EW_UTM_INDEX = 57;
-  private static final int E_UTM_ZONE_INDEX = 58;
-  private static final int E_NAME_PART1_INDEX = 59;
-  private static final int E_NAME_PART2_INDEX = 60;
-  private static final int E_NAME_PART3_INDEX = 61;
-  private static final int E_NAME_PART4_INDEX = 62;
-  private static final int E_NAME_PART5_INDEX = 63;
-  private static final int E_NAME_PART6_INDEX = 64;
-  private static final int E_PRESS_RELEASE_URL_INDEX = 65;
-  private static final int E_FACT_PAGE_URL_INDEX = 66;
-  private static final int E_FACT_MAP_URL_INDEX = 67;
-  private static final int E_DISKOS_WELLBORE_TYPE_INDEX = 68;
-  private static final int E_DISKOS_WELLBORE_PARENT_INDEX = 69;
-  private static final int E_WDSS_QC_DATE_INDEX = 70;
-  private static final int E_RELEASE_DATE_INDEX = 71;
-  private static final int E_NPDID_WELLBORE_INDEX = 72;
-  private static final int E_NPDID_DISCOVERY_INDEX = 73;
-  private static final int E_NPDID_FIELD_INDEX = 74;
-  private static final int E_NPDID_FACILITY_DRILLING_INDEX = 75;
-  private static final int E_NPDID_WELLBORE_RECLASS_INDEX = 76;
-  private static final int E_NPDID_PRODUCTION_LICENSE_INDEX = 77;
-  private static final int E_DATE_UPDATED = 78; // TODO
-  private static final int E_DATE_UPDATED_MAX = 79; // TODO
-  private static final int E_DATESYNC_NPD_INDEX = 80;
+  private static final int E_SITE_SURVEY_INDEX = 16;
+  private static final int E_SEISMIC_LOCATION_INDEX = 17;
+  private static final int E_MAX_INCLINATION_INDEX = 18;
+  private static final int E_KELLY_BUSH_ELEVATION_INDEX = 19;
+  private static final int E_FINAL_VERTICAL_DEPTH_INDEX = 20;
+  private static final int E_TOTAL_DEPTH_INDEX = 21;
+  private static final int E_WATER_DEPTH_INDEX = 22;
+  private static final int E_KICK_OFF_POINT = 23;
+  private static final int E_AGE_AT_TD_INDEX = 24;
+  private static final int E_FORMATION_AT_TD_INDEX = 25;
+  private static final int E_MAIN_AREA_INDEX = 26;
+  private static final int E_DRILLING_FACILITY_INDEX = 27;
+  private static final int E_FACILITY_TYPE_DRILLING_INDEX = 28;
+  private static final int E_DRILLING_FACILITY_FIXED_OR_MOVEABLE = 29;
+  private static final int E_LICENSING_ACTIVITY_INDEX = 30;
+  private static final int E_MULTILATERAL_INDEX = 31;
+  private static final int E_PURPOSE_PLANNED_INDEX = 32;
+  private static final int E_ENTRY_YEAR_INDEX = 33;
+  private static final int E_COMPLETION_YEAR_INDEX = 34;
+  private static final int E_RECLASS_FROM_WELLBORE_INDEX = 35;
+  private static final int E_REENTRYEXPLORATIONACTIVITY_INDEX = 36;
+  private static final int E_PLOT_SYMBOL_INDEX = 37;
+  private static final int E_FORMATION_WITH_HC1_INDEX = 38;
+  private static final int E_AGE_WITH_HC1_INDEX = 39;
+  private static final int E_FORMATION_WITH_HC2_INDEX = 40;
+  private static final int E_AGE_WITH_HC2_INDEX = 41;
+  private static final int E_FORMATION_WITH_HC3_INDEX = 42;
+  private static final int E_AGE_WITH_HC3_INDEX = 43;
+  private static final int E_DRILLING_DAYS_INDEX = 44;
+  private static final int E_REENTRY_INDEX = 45;
+  private static final int E_LICENSE_TARGET_NAME_INDEX = 46;
+  private static final int E_PLUGGED_AND_ABANDON_DATE_INDEX = 47;
+  private static final int E_PLUGGED_DATE_INDEX = 48;
+  private static final int E_GEODETIC_DATUM_INDEX = 49;
+  private static final int E_NS_DEG_INDEX = 50;
+  private static final int E_NS_MIN_INDEX = 51;
+  private static final int E_NS_SEC_INDEX = 52;
+  private static final int E_NS_CODE_INDEX = 53;
+  private static final int E_EW_DEG_INDEX = 54;
+  private static final int E_EW_MIN_INDEX = 55;
+  private static final int E_EW_SEC_INDEX = 56;
+  private static final int E_EW_CODE_INDEX = 57;
+  private static final int E_LATITUDE_INDEX = 58;
+  private static final int E_LONGITUDE_INDEX = 59;
+  private static final int E_NS_UTM_INDEX = 60;
+  private static final int E_EW_UTM_INDEX = 61;
+  private static final int E_UTM_ZONE_INDEX = 62;
+  private static final int E_NAME_PART1_INDEX = 63;
+  private static final int E_NAME_PART2_INDEX = 64;
+  private static final int E_NAME_PART3_INDEX = 65;
+  private static final int E_NAME_PART4_INDEX = 66;
+  private static final int E_NAME_PART5_INDEX = 67;
+  private static final int E_NAME_PART6_INDEX = 68;
+  private static final int E_PRESS_RELEASE_URL_INDEX = 69;
+  private static final int E_FACT_PAGE_URL_INDEX = 70;
+  private static final int E_FACT_MAP_URL_INDEX = 71;
+  private static final int E_DISKOS_WELLBORE_TYPE_INDEX = 72;
+  private static final int E_DISKOS_WELLBORE_PARENT_INDEX = 73;
+  private static final int E_WDSS_QC_DATE_INDEX = 74;
+  private static final int E_RELEASE_DATE_INDEX = 75;
+  private static final int E_RECLASSIFICATION_DATE_INDEX = 76;
+  private static final int E_NPDID_WELLBORE_INDEX = 77;
+  private static final int E_NPDID_DISCOVERY_INDEX = 78;
+  private static final int E_NPDID_FIELD_INDEX = 79;
+  private static final int E_NPDID_FACILITY_DRILLING_INDEX = 80;
+  private static final int E_NPDID_WELLBORE_RECLASS_INDEX = 81;
+  private static final int E_NPDID_PRODUCTION_LICENSE_INDEX = 82;
+  private static final int E_NPDID_SITE_SURVEY_INDEX = 83;
+  private static final int E_MAIN_LEVEL_UPDATED_DATE_INDEX = 84;
+  private static final int E_UPDATED_DATE_INDEX = 85;
+  private static final int E_DATESYNC_NPD_INDEX = 86;
 
   //
   // Development wells
@@ -151,43 +157,47 @@ public final class NpdWellboreReader
   private static final int D_ENTRY_YEAR_INDEX = 31;
   private static final int D_COMPLETION_YEAR_INDEX = 32;
   private static final int D_RECLASS_FROM_WELLBORE_INDEX = 33;
-  private static final int D_PLOT_SYMBOL_INDEX = 34;
-  private static final int D_GEODETIC_DATUM_INDEX = 35;
-  private static final int D_NS_DEG_INDEX = 36;
-  private static final int D_NS_MIN_INDEX = 37;
-  private static final int D_NS_SEC_INDEX = 38;
-  private static final int D_NS_CODE_INDEX = 39;
-  private static final int D_EW_DEG_INDEX = 40;
-  private static final int D_EW_MIN_INDEX = 41;
-  private static final int D_EW_SEC_INDEX = 42;
-  private static final int D_EW_CODE_INDEX = 43;
-  private static final int D_LATITUDE_INDEX = 44;
-  private static final int D_LONGITUDE_INDEX = 45;
-  private static final int D_NS_UTM_INDEX = 46;
-  private static final int D_EW_UTM_INDEX = 47;
-  private static final int D_UTM_ZONE_INDEX = 48;
-  private static final int D_NAME_PART1_INDEX = 49;
-  private static final int D_NAME_PART2_INDEX = 50;
-  private static final int D_NAME_PART3_INDEX = 51;
-  private static final int D_NAME_PART4_INDEX = 52;
-  private static final int D_NAME_PART5_INDEX = 53;
-  private static final int D_NAME_PART6_INDEX = 54;
-  private static final int D_FACT_PAGE_URL_INDEX = 55;
-  private static final int D_FACT_MAP_URL_INDEX = 56;
-  private static final int D_DISKOS_WELLBORE_TYPE_INDEX = 57;
-  private static final int D_DISKOS_WELLBORE_PARENT_INDEX = 58;
-  private static final int D_NPDID_WELLBORE_INDEX = 59;
-  private static final int D_NPDID_DISCOVERY_INDEX = 60;
-  private static final int D_NPDID_FIELD_INDEX = 61;
-  private static final int D_WDSS_QC_DATE_INDEX = 62;
-  private static final int D_RELEASE_DATE_INDEX = 63;
-  private static final int D_NPDID_PRODUCTION_LICENSE_INDEX = 64;
-  private static final int D_NPDID_FACILITY_DRILLING_INDEX = 65;
-  private static final int D_NPDID_FACILITY_PRODUCING_INDEX = 66;
-  private static final int D_NPDID_WELLBORE_RECLASS_INDEX = 67;
-  private static final int D_DATE_UPDATED = 68; // TODO
-  private static final int D_DATE_UPDATED_MAX = 69; // TODO
-  private static final int D_DATESYNC_NPD_INDEX = 70;
+  private static final int D_PLUGGED_AND_ABANDON_DATE_INDEX = 34;
+  private static final int D_PLUGGED_DATE_INDEX = 35;
+  private static final int D_LICENSE_TARGET_NAME_INDEX = 36;
+  private static final int D_PLOT_SYMBOL_INDEX = 37;
+  private static final int D_GEODETIC_DATUM_INDEX = 38;
+  private static final int D_NS_DEG_INDEX = 39;
+  private static final int D_NS_MIN_INDEX = 40;
+  private static final int D_NS_SEC_INDEX = 41;
+  private static final int D_NS_CODE_INDEX = 42;
+  private static final int D_EW_DEG_INDEX = 43;
+  private static final int D_EW_MIN_INDEX = 44;
+  private static final int D_EW_SEC_INDEX = 45;
+  private static final int D_EW_CODE_INDEX = 46;
+  private static final int D_LATITUDE_INDEX = 47;
+  private static final int D_LONGITUDE_INDEX = 48;
+  private static final int D_NS_UTM_INDEX = 49;
+  private static final int D_EW_UTM_INDEX = 50;
+  private static final int D_UTM_ZONE_INDEX = 51;
+  private static final int D_NAME_PART1_INDEX = 52;
+  private static final int D_NAME_PART2_INDEX = 53;
+  private static final int D_NAME_PART3_INDEX = 54;
+  private static final int D_NAME_PART4_INDEX = 55;
+  private static final int D_NAME_PART5_INDEX = 56;
+  private static final int D_NAME_PART6_INDEX = 57;
+  private static final int D_FACT_PAGE_URL_INDEX = 58;
+  private static final int D_FACT_MAP_URL_INDEX = 59;
+  private static final int D_DISKOS_WELLBORE_TYPE_INDEX = 60;
+  private static final int D_DISKOS_WELLBORE_PARENT_INDEX = 61;
+  private static final int D_NPDID_WELLBORE_INDEX = 62;
+  private static final int D_NPDID_DISCOVERY_INDEX = 63;
+  private static final int D_NPDID_FIELD_INDEX = 64;
+  private static final int D_WDSS_QC_DATE_INDEX = 65;
+  private static final int D_RELEASE_DATE_INDEX = 66;
+  private static final int D_NPDID_PRODUCTION_LICENSE_INDEX = 67;
+  private static final int D_NPDID_TARGET_PRODUCTION_LICENSE_INDEX = 68;
+  private static final int D_NPDID_FACILITY_DRILLING_INDEX = 69;
+  private static final int D_NPDID_FACILITY_PRODUCING_INDEX = 70;
+  private static final int D_NPDID_WELLBORE_RECLASS_INDEX = 71;
+  private static final int D_MAIN_LEVEL_UPDATED_DATE_INDEX = 72;
+  private static final int D_UPDATED_DATE_INDEX = 73;
+  private static final int D_DATESYNC_NPD_INDEX = 74;
 
   //
   // Other wells
@@ -208,31 +218,37 @@ public final class NpdWellboreReader
   private static final int O_MAIN_AREA_INDEX = 13;
   private static final int O_ENTRY_YEAR_INDEX = 14;
   private static final int O_COMPLETION_YEAR_INDEX = 15;
-  private static final int O_SEISMIC_LOCATION_INDEX = 16;
-  private static final int O_GEODETIC_DATUM_INDEX = 17;
-  private static final int O_NS_DEG_INDEX = 18;
-  private static final int O_NS_MIN_INDEX = 19;
-  private static final int O_NS_SEC_INDEX = 20;
-  private static final int O_NS_CODE_INDEX = 21;
-  private static final int O_EW_DEG_INDEX = 22;
-  private static final int O_EW_MIN_INDEX = 23;
-  private static final int O_EW_SEC_INDEX = 24;
-  private static final int O_EW_CODE_INDEX = 25;
-  private static final int O_LATITUDE_INDEX = 26;
-  private static final int O_LONGITUDE_INDEX = 27;
-  private static final int O_NS_UTM_INDEX = 28;
-  private static final int O_EW_UTM_INDEX = 29;
-  private static final int O_UTM_ZONE_INDEX = 30;
-  private static final int O_NAME_PART1_INDEX = 31;
-  private static final int O_NAME_PART2_INDEX = 32;
-  private static final int O_NAME_PART3_INDEX = 33;
-  private static final int O_NAME_PART4_INDEX = 34;
-  private static final int O_NAME_PART5_INDEX = 35;
-  private static final int O_NAME_PART6_INDEX = 36;
-  private static final int O_NPDID_WELLBORE_INDEX = 37;
-  private static final int O_DATE_UPDATED = 38; // TODO
-  private static final int O_DATE_UPDATED_MAX = 39; // TODO
-  private static final int O_DATESYNC_NPD_INDEX = 40;
+  private static final int O_SITE_SURVEY_INDEX = 16;
+  private static final int O_SEISMIC_LOCATION_INDEX = 17;
+  private static final int O_GEODETIC_DATUM_INDEX = 18;
+  private static final int O_LICENSE_TARGET_NAME_INDEX = 19;
+  private static final int O_PLUGGED_AND_ABANDON_DATE_INDEX = 20;
+  private static final int O_PLUGGED_DATE_INDEX = 21;
+  private static final int O_NS_DEG_INDEX = 22;
+  private static final int O_NS_MIN_INDEX = 23;
+  private static final int O_NS_SEC_INDEX = 24;
+  private static final int O_NS_CODE_INDEX = 25;
+  private static final int O_EW_DEG_INDEX = 26;
+  private static final int O_EW_MIN_INDEX = 27;
+  private static final int O_EW_SEC_INDEX = 28;
+  private static final int O_EW_CODE_INDEX = 29;
+  private static final int O_LATITUDE_INDEX = 30;
+  private static final int O_LONGITUDE_INDEX = 31;
+  private static final int O_NS_UTM_INDEX = 32;
+  private static final int O_EW_UTM_INDEX = 33;
+  private static final int O_UTM_ZONE_INDEX = 34;
+  private static final int O_NAME_PART1_INDEX = 35;
+  private static final int O_NAME_PART2_INDEX = 36;
+  private static final int O_NAME_PART3_INDEX = 37;
+  private static final int O_NAME_PART4_INDEX = 38;
+  private static final int O_NAME_PART5_INDEX = 39;
+  private static final int O_NAME_PART6_INDEX = 40;
+  private static final int O_NPDID_WELLBORE_INDEX = 41;
+  private static final int O_NPDID_SITE_SURVEY_INDEX = 42;
+  private static final int O_FACT_PAGE_URL_INDEX = 43;
+  private static final int O_MAIN_LEVEL_UPDATED_DATE_INDEX = 44;
+  private static final int O_UPDATED_DATE_INDEX = 45;
+  private static final int O_DATESYNC_NPD_INDEX = 46;
 
   /** NPD date format description */
   private static final String DATE_FORMAT = "dd.MM.yyyy";
@@ -402,7 +418,7 @@ public final class NpdWellboreReader
   private static NpdWellbore newNpdOtherWellbore(String[] tokens)
     throws ParseException
   {
-    if (tokens.length != 41)
+    if (tokens.length != 47)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     //
@@ -424,8 +440,12 @@ public final class NpdWellboreReader
     String mainArea = tokens[O_MAIN_AREA_INDEX];
     Integer entryYear = Util.parseInt(tokens[O_ENTRY_YEAR_INDEX]);
     Integer completionYear = Util.parseInt(tokens[O_COMPLETION_YEAR_INDEX]);
+    String siteSurvey = tokens[O_SITE_SURVEY_INDEX];
     String seismicLocation = tokens[O_SEISMIC_LOCATION_INDEX];
     String geodeticDatum = tokens[O_GEODETIC_DATUM_INDEX];
+    String licenseTargetName = tokens[O_LICENSE_TARGET_NAME_INDEX];
+    Date pluggedAndAbondonDate = Util.parseDate(tokens[O_PLUGGED_AND_ABANDON_DATE_INDEX]);
+    Date pluggedDate = Util.parseDate(tokens[O_PLUGGED_DATE_INDEX]);
     Integer nsDeg = Util.parseInt(tokens[O_NS_DEG_INDEX]);
     Integer nsMin = Util.parseInt(tokens[O_NS_MIN_INDEX]);
     Double nsSec = Util.parseDouble(tokens[O_NS_SEC_INDEX]);
@@ -446,8 +466,10 @@ public final class NpdWellboreReader
     String namePart5 = tokens[O_NAME_PART5_INDEX];
     String namePart6 = tokens[O_NAME_PART6_INDEX];
     String npdId = tokens[O_NPDID_WELLBORE_INDEX];
-    // TODO
-    // TODO
+    String npdidSiteSurvey = tokens[O_NPDID_SITE_SURVEY_INDEX];
+    String factPageUrl = tokens[O_FACT_PAGE_URL_INDEX];
+    Date mainLevelUpdatedDate = Util.parseDate(tokens[O_MAIN_LEVEL_UPDATED_DATE_INDEX]);
+    Date updatedDate = Util.parseDate(tokens[O_UPDATED_DATE_INDEX]);
     Date syncDate = Util.parseDate(tokens[O_DATESYNC_NPD_INDEX]);
 
     //
@@ -483,7 +505,12 @@ public final class NpdWellboreReader
                                                      false,
                                                      entryYear,
                                                      completionYear,
-                                                     null,
+                                                     null, // reclassificationDate
+                                                     siteSurvey,
+                                                     npdidSiteSurvey,
+                                                     pluggedAndAbondonDate,
+                                                     pluggedDate,
+                                                     licenseTargetName,
                                                      -1,
                                                      geodeticDatum,
                                                      nsDeg,
@@ -505,6 +532,7 @@ public final class NpdWellboreReader
                                                      namePart4,
                                                      namePart5,
                                                      namePart6,
+                                                     factPageUrl,
                                                      null,
                                                      null,
                                                      null,
@@ -515,7 +543,8 @@ public final class NpdWellboreReader
                                                      null,
                                                      null,
                                                      null,
-                                                     null,
+                                                     mainLevelUpdatedDate,
+                                                     updatedDate,
                                                      syncDate,
                                                      seismicLocation);
 
@@ -535,7 +564,7 @@ public final class NpdWellboreReader
   {
     assert tokens != null : "tokens cannot be null";
 
-    if (tokens.length != 81)
+    if (tokens.length != 87)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     //
@@ -557,7 +586,11 @@ public final class NpdWellboreReader
     String discovery = tokens[E_DISCOVERY_INDEX];
     Boolean isDiscoveryWellbore = Util.parseBoolean(tokens[E_DISCOVERY_WELLBORE_INDEX]);
     Integer bottomHoleTemperature = Util.parseInt(tokens[E_BOTTOM_HOLE_TEMPERATURE_INDEX]);
+    String siteSurvey = tokens[E_SITE_SURVEY_INDEX];
     String seismicLocation = tokens[E_SEISMIC_LOCATION_INDEX];
+    Date pluggedAndAbandonDate = Util.parseDate(tokens[E_PLUGGED_AND_ABANDON_DATE_INDEX]);
+    Date pluggedDate = Util.parseDate(tokens[E_PLUGGED_DATE_INDEX]);
+    String licenseTargetName = tokens[E_LICENSE_TARGET_NAME_INDEX];
     Double maxInclination = Util.parseDouble(tokens[E_MAX_INCLINATION_INDEX]);
     Double kellyBushElevation = Util.parseDouble(tokens[E_KELLY_BUSH_ELEVATION_INDEX]);
     Double finalVerticalDepth = Util.parseDouble(tokens[E_FINAL_VERTICAL_DEPTH_INDEX]);
@@ -576,6 +609,7 @@ public final class NpdWellboreReader
     Integer entryYear = Util.parseInt(tokens[E_ENTRY_YEAR_INDEX]);
     Integer completionYear = Util.parseInt(tokens[E_COMPLETION_YEAR_INDEX]);
     String reclassFromWellbore = tokens[E_RECLASS_FROM_WELLBORE_INDEX];
+    Date reclassificationDate = Util.parseDate(tokens[E_RECLASSIFICATION_DATE_INDEX]);
     String reentryExplorationActivity = tokens[E_REENTRYEXPLORATIONACTIVITY_INDEX];
     Integer plotSymbol = Util.parseInt(tokens[E_PLOT_SYMBOL_INDEX]);
     String formationWithHc1 = tokens[E_FORMATION_WITH_HC1_INDEX];
@@ -619,6 +653,9 @@ public final class NpdWellboreReader
     String npdidFacilityDrilling = tokens[E_NPDID_FACILITY_DRILLING_INDEX];
     String npdidWellboreReclass = tokens[E_NPDID_WELLBORE_RECLASS_INDEX];
     String npdidProductionLicense = tokens[E_NPDID_PRODUCTION_LICENSE_INDEX];
+    String npdidSiteSurvey = tokens[E_NPDID_SITE_SURVEY_INDEX];
+    Date mainLevelUpdatedDate = Util.parseDate(tokens[E_MAIN_LEVEL_UPDATED_DATE_INDEX]);
+    Date updatedDate = Util.parseDate(tokens[E_UPDATED_DATE_INDEX]);
     Date syncDate = Util.parseDate(tokens[E_DATESYNC_NPD_INDEX]);
 
     //
@@ -656,6 +693,12 @@ public final class NpdWellboreReader
                                  entryYear,
                                  completionYear,
                                  reclassFromWellbore,
+                                 reclassificationDate,
+                                 siteSurvey,
+                                 npdidSiteSurvey,
+                                 pluggedAndAbandonDate,
+                                 pluggedDate,
+                                 licenseTargetName,
                                  plotSymbol,
                                  geodeticDatum,
                                  nsDeg,
@@ -688,6 +731,8 @@ public final class NpdWellboreReader
                                  npdidProductionLicense,
                                  npdidFacilityDrilling,
                                  npdidWellboreReclass,
+                                 mainLevelUpdatedDate,
+                                 updatedDate,
                                  syncDate,
                                  bottomHoleTemperature,
                                  seismicLocation,
@@ -721,7 +766,7 @@ public final class NpdWellboreReader
   {
     assert tokens != null : "tokens cannot be null";
 
-    if (tokens.length != 71)
+    if (tokens.length != 75)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
     //
@@ -761,6 +806,9 @@ public final class NpdWellboreReader
     Integer entryYear = Util.parseInt(tokens[D_ENTRY_YEAR_INDEX]);
     Integer completionYear = Util.parseInt(tokens[D_COMPLETION_YEAR_INDEX]);
     String reclassFromWellbore = tokens[D_RECLASS_FROM_WELLBORE_INDEX];
+    Date pluggedAndAbandonDate = Util.parseDate(tokens[D_PLUGGED_AND_ABANDON_DATE_INDEX]);
+    Date pluggedDate = Util.parseDate(tokens[D_PLUGGED_DATE_INDEX]);
+    String licenseTargetName = tokens[D_LICENSE_TARGET_NAME_INDEX];
     Integer plotSymbol = Util.parseInt(tokens[D_PLOT_SYMBOL_INDEX]);
     String geodeticDatum = tokens[D_GEODETIC_DATUM_INDEX];
     Integer nsDeg = Util.parseInt(tokens[D_NS_DEG_INDEX]);
@@ -792,9 +840,12 @@ public final class NpdWellboreReader
     Date wdssQcDate = Util.parseDate(tokens[D_WDSS_QC_DATE_INDEX]);
     Date releaseDate = Util.parseDate(tokens[D_RELEASE_DATE_INDEX]);
     String npdidProductionLicense = tokens[D_NPDID_PRODUCTION_LICENSE_INDEX];
+    String npdidTargetProductionLicense = tokens[D_NPDID_TARGET_PRODUCTION_LICENSE_INDEX];
     String npdidFacilityDrilling = tokens[D_NPDID_FACILITY_DRILLING_INDEX];
     String npdidFacilityProducing = tokens[D_NPDID_FACILITY_PRODUCING_INDEX];
     String npdidWellboreReclass = tokens[D_NPDID_WELLBORE_RECLASS_INDEX];
+    Date mainLevelUpdatedDate = Util.parseDate(tokens[D_MAIN_LEVEL_UPDATED_DATE_INDEX]);
+    Date updatedDate = Util.parseDate(tokens[D_UPDATED_DATE_INDEX]);
     Date syncDate = Util.parseDate(tokens[D_DATESYNC_NPD_INDEX]);
 
     //
@@ -834,6 +885,9 @@ public final class NpdWellboreReader
                                  entryYear,
                                  completionYear,
                                  reclassFromWellbore,
+                                 pluggedAndAbandonDate,
+                                 pluggedDate,
+                                 licenseTargetName,
                                  plotSymbol,
                                  geodeticDatum,
                                  nsDeg,
@@ -866,11 +920,14 @@ public final class NpdWellboreReader
                                  npdidProductionLicense,
                                  npdidFacilityDrilling,
                                  npdidWellboreReclass,
+                                 mainLevelUpdatedDate,
+                                 updatedDate,
                                  syncDate,
                                  productionFacility,
                                  contentPlanned,
-                                 npdidFacilityProducing);
+                                 npdidFacilityProducing,
+                                 npdidTargetProductionLicense);
 
-      return wellbore;
+    return wellbore;
   }
 }

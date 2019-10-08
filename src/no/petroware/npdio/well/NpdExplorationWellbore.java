@@ -56,6 +56,12 @@ public final class NpdExplorationWellbore extends NpdWellbore
                          Integer entryYear,
                          Integer completionYear,
                          String reclassFromWellbore,
+                         Date reclassificationDate,
+                         String siteSurvey,
+                         String npdidSiteSurvey,
+                         Date pluggedAndAbandonDate,
+                         Date pluggedDate,
+                         String licenseTargetName,
                          Integer plotSymbol,
                          String geodeticDatum,
                          Integer nsDeg,
@@ -88,6 +94,8 @@ public final class NpdExplorationWellbore extends NpdWellbore
                          String npdidProductionLicense,
                          String npdidFacilityDrilling,
                          String npdidWellboreReclass,
+                         Date mainLevelUpdatedDate,
+                         Date updatedDate,
                          Date syncDate,
 
                          // Explorarion wellbore specific
@@ -139,6 +147,12 @@ public final class NpdExplorationWellbore extends NpdWellbore
           entryYear,
           completionYear,
           reclassFromWellbore,
+          reclassificationDate,
+          siteSurvey,
+          npdidSiteSurvey,
+          pluggedAndAbandonDate,
+          pluggedDate,
+          licenseTargetName,
           plotSymbol,
           geodeticDatum,
           nsDeg,
@@ -171,6 +185,8 @@ public final class NpdExplorationWellbore extends NpdWellbore
           npdidProductionLicense,
           npdidFacilityDrilling,
           npdidWellboreReclass,
+          mainLevelUpdatedDate,
+          updatedDate,
           syncDate);
 
     bottomHoleTemperature_ = bottomHoleTemperature;
