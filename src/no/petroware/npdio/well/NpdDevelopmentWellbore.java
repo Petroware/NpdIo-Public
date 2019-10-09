@@ -3,7 +3,7 @@ package no.petroware.npdio.well;
 import java.util.Date;
 
 /**
- * Development wellbore as modelled by the NPD.
+ * Development wellbore as modeled by the NPD.
  * <p>
  * This class is thread-safe.
  *
@@ -265,10 +265,10 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return ID of the target production license.
    * <p>
-   * NPDID production licence target.
+   * NPDID production license target.
    * <p>
-   * NPD unique key for the production licence of the wellbore tareget.
-   * This can be another production licence then where the wellhead
+   * NPD unique key for the production license of the wellbore target.
+   * This can be another production license then where the wellhead
    * position.
    * <p>
    * int, corresponds to the NPD property <em>prlNpdidProdLicenceTarget</em>.

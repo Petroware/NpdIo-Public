@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import no.petroware.npdio.Util;
+import no.petroware.npdio.util.Util;
 
 /**
  * Production reader.
@@ -131,7 +131,7 @@ public final class ProductionReader
       url = new URL(urlString);
     }
     catch (MalformedURLException exception) {
-      throw new IOException("Malformed URL: " + urlString);
+      throw new IOException("Malformed URL: " + urlString, exception);
     }
 
     // Open connection

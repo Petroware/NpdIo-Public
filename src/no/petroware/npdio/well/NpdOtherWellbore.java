@@ -11,7 +11,7 @@ import java.util.Date;
 public final class NpdOtherWellbore extends NpdWellbore
 {
   /**
-   * Position of wellbore on seismic survey lines. SP: shotpoint.
+   * Position of wellbore on seismic survey lines. SP: shot point.
    */
   private final String seismicLocation_;
 
@@ -173,7 +173,7 @@ public final class NpdOtherWellbore extends NpdWellbore
   /**
    * Return seismic location of this wellbore.
    * <p>
-   * This is the position of wellbore on seismic survey lines. SP: shotpoint.
+   * This is the position of wellbore on seismic survey lines. SP: shot point.
    * <p>
    * varchar(200), corresponds to NPD property <em>wlbSeismicLocation</em>.
    *

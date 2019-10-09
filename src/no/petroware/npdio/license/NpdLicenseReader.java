@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-import no.petroware.npdio.Util;
+import no.petroware.npdio.util.Util;
 
 /**
  * NPD license reader.
@@ -70,7 +70,7 @@ public final class NpdLicenseReader
     Date dateGranted = Util.parseDate(tokens[DATE_GRANTED_INDEX]);
     Date validToDate = Util.parseDate(tokens[VALID_TO_DATE_INDEX]);
     double originalArea = 1000.0 * 1000.0 * Util.parseDouble(tokens[ORIGINAL_AREA_INDEX]);
-    double currentArea = 1000.0 * 1000.0 * Util.parseDouble(tokens[ORIGINAL_AREA_INDEX]);
+    double currentArea = 1000.0 * 1000.0 * Util.parseDouble(tokens[CURRENT_AREA_INDEX]);
     String phase = tokens[PHASE_INDEX];
     String factPageUrl = tokens[FACT_PAGE_URL_INDEX];
     String factMapUrl = tokens[FACT_MAP_URL_INDEX];

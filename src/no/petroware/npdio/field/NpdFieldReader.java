@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import no.petroware.npdio.Util;
+import no.petroware.npdio.util.Util;
 
 /**
  * NPD field reader.
@@ -121,7 +121,7 @@ public final class NpdFieldReader
       url = new URL(urlString);
     }
     catch (MalformedURLException exception) {
-      throw new IOException("Malformed URL: " + urlString);
+      throw new IOException("Malformed URL: " + urlString, exception);
     }
 
     // Open connection

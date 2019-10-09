@@ -53,23 +53,24 @@ The example is taken from [Log Studio](https://petroware.no/logstudio.html) from
 
 ## Programming examples
 
-NPD I/O access data through HTTP. As the URL for each data may change over time,
-they are nor built in to the library, but should be provided by the client application.
+NPD I/O access data through HTTP. As the URL for each data type may change over time,
+they are nor built in to the library,
+but should be provided by the client application.
 
-Below are the correct URLs for each data type:
+As of October 2019 the correct URLs for each NPD data type is as follows:
 
 | Data type                   | URL                    |
 |-----------------------------|------------------------|
-| ``NpdCompany``              | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdDevelopmentWellbore``  | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdExplorationWellbore``  | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdField``                | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdFixedFacility``        | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdLicense``              | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-| ``NpdMoveableFacility``     | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdOtherWellbore``        | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdProduction``           | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-| ``NpdSurvey``               | ``https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdCompany``              | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdDevelopmentWellbore``  | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdExplorationWellbore``  | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdField``                | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdFixedFacility``        | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdLicense``              | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdMoveableFacility``     | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdOtherWellbore``        | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdProduction``           | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdSurvey``               | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
 
 
 <p>
@@ -83,7 +84,7 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read development NPD wellbores
    //
-   String url = "https://factpages.npd.no/..."; // Use NpdDevelopmentWellbore link from table above
+   String url = "https://npdfactpages.npd.no/..."; // Use NpdDevelopmentWellbore link from table above
    List<NpdWellbore> npdWellbores = NpdWellDataReader.readDevelopmentWellbores(url);
 
    // Loop over the wellbores and write to stdout
@@ -96,11 +97,11 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read NPD fields
    //
-   String url = "https://factpages.npd.no/..."; // Use NpdField link from table above
+   String url = "https://npdfactpages.npd.no/..."; // Use NpdField link from table above
    List<NpdField> npdFields = NpdFieldReader.readFields(url);
 
    // Read production data for all fields
-   String url = "https://factpages.npd.no/..."; // Use NpdProduction link from table above
+   String url = "https://npdfactpages.npd.no/..."; // Use NpdProduction link from table above
    ProductionReader.readProduction(url, npdFields);
 
    // Loop over the fields and write oil production to stdout

@@ -5,7 +5,7 @@ import java.util.Date;
 import no.petroware.npdio.NpdObject;
 
 /**
- * Fixed facility as modelled by the NPD.
+ * Fixed facility as modeled by the NPD.
  *
  * @author <a href="mailto:info@petroware.no">Petroware AS</a>
  */
@@ -89,7 +89,7 @@ public final class NpdFixedFacility extends NpdFacility
   }
 
   /**
-   * Retur current phase of the facility.
+   * Return current phase of the facility.
    * <p>
    * Example of legal values:
    * <ul>
@@ -196,10 +196,10 @@ public final class NpdFixedFacility extends NpdFacility
   }
 
   /**
-   * Indicator which tells if the coordinate is in the nothern or
+   * Indicator which tells if the coordinate is in the northern or
    * southern hemisphere. Example of legal values: N, S.
    *
-   * @return  North or sourth indicator. Null if unknown.
+   * @return  North or south indicator. Null if unknown.
    */
   public String getNsCode()
   {

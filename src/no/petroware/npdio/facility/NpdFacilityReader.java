@@ -13,10 +13,10 @@ import java.util.List;
 import java.util.logging.Logger;
 
 import no.petroware.npdio.NpdObject;
-import no.petroware.npdio.Util;
+import no.petroware.npdio.util.Util;
 
 /**
- * Reader for NPD wellbores.
+ * Reader for NPD facilities.
  * <p>
  * This class is thread-safe.
  *
@@ -68,9 +68,6 @@ public final class NpdFacilityReader
   private static final int M_RESPONSIBLE_COMPANY_ID_INDEX = 8;
   private static final int M_DATE_UPDATED_INDEX = 9;
   private static final int M_SYNC_DATE_INDEX = 10;
-
-  /** NPD date format description */
-  private static final String DATE_FORMAT = "dd.MM.yyyy";
 
   /** The logger instance */
   private static final Logger logger_ = Logger.getLogger(NpdFacilityReader.class.getName());
@@ -210,7 +207,7 @@ public final class NpdFacilityReader
       url = new URL(urlString);
     }
     catch (MalformedURLException exception) {
-      throw new IOException("Malformed URL: " + urlString);
+      throw new IOException("Malformed URL: " + urlString, exception);
     }
 
     // Open connection

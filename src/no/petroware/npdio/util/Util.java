@@ -1,4 +1,4 @@
-package no.petroware.npdio;
+package no.petroware.npdio.util;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -8,8 +8,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import no.petroware.npdio.NpdObject;
+
 /**
- * A collection of utilities for the NpdIo library.
+ * A collection of utilities for the NPD I/O library.
  * <p>
  * This class is public as a side-effect. It is used by the reader classes
  * and is not meant for client access.
@@ -133,7 +135,7 @@ public final class Util
 
   /**
    * Split the specified line on commas. Tokens may optionally be enclosed
-   * in qoutes if for instance they contain commas themselves.
+   * in quotes if for instance they contain commas themselves.
    *
    * <pre>
    *   This, is,,a,"silly, but",actual,"example"

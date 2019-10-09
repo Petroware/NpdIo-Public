@@ -109,7 +109,7 @@ public final class NpdLicense extends NpdObject
   /**
    * Return the stratigraphical state of this license.
    * <p>
-   * Indicates if the licence has vertical limitations based on stratigraphy.
+   * Indicates if the license has vertical limitations based on stratigraphy.
    * 'NO' means no such limitations, 'YES OR PARTLY' means that either whole
    * or parts of the license has such limitations.
    *
@@ -145,9 +145,9 @@ public final class NpdLicense extends NpdObject
   }
 
   /**
-   * Return original area of the production licence. Square metres.
+   * Return original area of the production license. Square meters.
    *
-   * @return  Original area of the license in square metres.
+   * @return  Original area of the license in square meters.
    */
   public double getOriginalArea()
   {

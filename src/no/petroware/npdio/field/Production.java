@@ -22,7 +22,6 @@ public final class Production
    * Create a production instance.
    *
    * @param entries  The monthly production entries. Non-null.
-   * @return
    */
   Production(List<Entry> entries)
   {

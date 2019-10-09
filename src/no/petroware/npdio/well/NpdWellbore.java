@@ -57,11 +57,10 @@ public class NpdWellbore extends NpdObject
   /**
    * NPDID for the site survey
    */
-
   private final String npdidSiteSurvey_;
 
   /**
-   * Plugged and abondon date.
+   * Plugged and abandon date.
    * <p>
    * datetime
    */
@@ -75,7 +74,7 @@ public class NpdWellbore extends NpdObject
   private final Date pluggedDate_;
 
   /**
-   * Prod. licence for drilling target
+   * Prod. license for drilling target
    * <p>
    * varchar(10)
    */
@@ -277,7 +276,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return drilling operator of this wellbore.
    * <p>
-   * Name of the company reponsible for drilling the wellbore.
+   * Name of the company responsible for drilling the wellbore.
    * <p>
    * varchar(60), corresponds to NPD property <em>wlbDrillingOperator</em>.
    *
@@ -291,7 +290,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Get production license of this wellbore.
    * <p>
-   * Official designation of the production licence the wellbore was drilled in.
+   * Official designation of the production license the wellbore was drilled in.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbProductionLicence</em>.
    *
@@ -314,7 +313,7 @@ public class NpdWellbore extends NpdObject
    *   <li>ONLINE/OPERATIONAL (development well that is drilled - is either ready for production or is currently producing or injecting)</li>
    *   <li>P&amp;A (exploration: the well is plugged and abandoned, development: the production/ injection in the well is stopped and the field is closed)</li>
    *   <li>PLUGGED (the development well is plugged, but the field is still active)</li>
-   *   <li>PREDRILLED (predrilling of the well is done)</li>
+   *   <li>PREDRILLED (pre-drilling of the well is done)</li>
    *   <li>RE-CLASS TO DEV (exploration well that is reclassified to a development well)</li>
    *   <li>RE-CLASS TO TEST (exploration well that is reclassified to test production)</li>
    *   <li>SUSPENDED (well that is temporary abandoned)</li>
@@ -549,7 +548,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return if this is a discovery wellbore.
    * <p>
-   * Indicator which telles if the wellbore made a new discovery.
+   * Indicator which tells if the wellbore made a new discovery.
    * <p>
    * varchar(3), corresponds to the NPD property <em>wlbDiscoveryWellbore</em>.
    *
@@ -590,7 +589,7 @@ public class NpdWellbore extends NpdObject
   }
 
   /**
-   * Return totl depth of this wellbore.
+   * Return total depth of this wellbore.
    * <p>
    * Total measured length of wellbore from kelly bushing to
    * total depth (driller's depth).
@@ -605,9 +604,9 @@ public class NpdWellbore extends NpdObject
   }
 
   /**
-   * Return weater depth of this wellbore.
+   * Return water depth of this wellbore.
    * <p>
-   * Depth in metres betweem mean sea level and sea floor.
+   * Depth in meters between mean sea level and sea floor.
    * <p>
    * numeric, corresponds to the NPD property <em>wlbWaterDepth</em>.
    *
@@ -718,7 +717,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return license activity of this wellbore.
    * <p>
-   * Name of the licensing activity the production licence
+   * Name of the licensing activity the production license
    * the wellbore was drilled in, was awarded in.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbLicensingActivity</em>.
@@ -809,8 +808,8 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the site survey of this wellbore.
    * <p>
-   * Name of the sitesurvey as reported to NPD in system for reporting
-   * sitesurveys, seismic and electromagnetic activities.
+   * Name of the site survey as reported to NPD in system for reporting
+   * site surveys, seismic and electromagnetic activities.
    * <p>
    * varchar(100), corresponds to NPD property <em>wlbSiteSurvey</em>.
    *
@@ -838,7 +837,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the plugged and abandon date of this wellbore.
    * <p>
-   * Plugged and abondon date.
+   * Plugged and abandon date.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbPluggedAbandonDate</em>.
    *
@@ -866,7 +865,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the name of the production license of this wellbore.
    * <p>
-   * Prod. licence for drilling target.
+   * Prod. license for drilling target.
    * <p>
    * varchar(10), corresponds to the NPD property <em>wlbLicenseTargetName</em>.
    *
@@ -950,8 +949,8 @@ public class NpdWellbore extends NpdObject
   /**
    * Return NS position code of this wellbore.
    * <p>
-   * Indicator whcih tells if the coordinate of the wellhead is on the
-   * nothern or southern hemisphere. Legal values: N, S.
+   * Indicator which tells if the coordinate of the wellhead is on the
+   * northern or southern hemisphere. Legal values: N, S.
    * <p>
    * varchar(1), corresponds to the NPD property <em>wlbNsCode</em>.
    *
@@ -1007,8 +1006,8 @@ public class NpdWellbore extends NpdObject
   /**
    * Return EW position code of this wellbore.
    * <p>
-   * Indicator whcih tells if the coordinate of the wellhead is on the
-   * nothern or southern hemisphere. Legal values: W, W.
+   * Indicator which tells if the coordinate of the wellhead is on the
+   * northern or southern hemisphere. Legal values: W, W.
    * <p>
    * varchar(1), corresponds to the NPD property <em>wlbEwCode</em>.
    *
@@ -1271,7 +1270,8 @@ public class NpdWellbore extends NpdObject
    * Return QC date of this wellbore.
    * <p>
    * Date quality control of the wellbore information was completed,
-   * so it can be published on the internet as a 'Well Data Summary Sheet'
+   * so it can be published on the internet as a "Well Data Summary Sheet"
+
    * wellbore with more information available than other wellbores.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbWdssQcDate</em>.
@@ -1301,7 +1301,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return ID of the production license of this wellbore.
    * <p>
-   * NPD's unique id for the production licence the wellbore was drilled in.
+   * NPD's unique id for the production license the wellbore was drilled in.
    * <p>
    * bigint, corresponds to the NPD property <em>prlNpdidProductionLicence</em>.
    *
@@ -1345,7 +1345,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * Date when information about this wellbore was last updated or inserted
    * for the first time. The date will only be changed if the data in the
-   * 'Main level' in the tab 'Wellbore' will be changed.
+   * "Main level" in the tab "Wellbore" will be changed.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbDateUpdated</em>
    *
@@ -1361,7 +1361,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * Date when any information about this wellbore was last updated or inserted
    * for the first time. The date also will bli change if some of the data
-   * in the 'Sub levels' in the tab 'Wellbore' will be changed.
+   * in the "Sub levels" in the tab "Wellbore" will be changed.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbDateUpdatedMax</em>
    *

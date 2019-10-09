@@ -3,7 +3,7 @@ package no.petroware.npdio.well;
 import java.util.Date;
 
 /**
- * Exploration wellbore as modelled by the NPD.
+ * Exploration wellbore as modeled by the NPD.
  *
  * @author <a href="mailto:info@petroware.no">Petroware AS</a>
  */
@@ -222,7 +222,7 @@ public final class NpdExplorationWellbore extends NpdWellbore
   }
 
   /**
-   * Return position of wellbore on seismic survey lines. SP: shotpoint.
+   * Return position of wellbore on seismic survey lines. SP: shot point.
    * <p>
    * varchar(200), corresponds to the NPD property <em>wlbSeismicLocation</em>.
    *
@@ -320,7 +320,7 @@ public final class NpdExplorationWellbore extends NpdWellbore
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbReentryExplorationActivity</em>.
    *
-   * @return  Reson for reentry of this wellbore.
+   * @return  Reason for reentry of this wellbore.
    */
   public String getReentryExplorationActivity()
   {
@@ -328,9 +328,9 @@ public final class NpdExplorationWellbore extends NpdWellbore
   }
 
   /**
-   * Return 1st level of lithostartigraphic unit of this wellbore.
+   * Return 1st level of lithostratigraphic unit of this wellbore.
    * <p>
-   * Name of lithostartigraphic unit, 1st level, where hydrocarbons were encountered.
+   * Name of lithostratigraphic unit, 1st level, where hydrocarbons were encountered.
    * <p>
    * Examples of legal values:
    * <ul>
@@ -376,9 +376,9 @@ public final class NpdExplorationWellbore extends NpdWellbore
   }
 
   /**
-   * Return 2nd level of lithostartigraphic unit of this wellbore.
+   * Return 2nd level of lithostratigraphic unit of this wellbore.
    * <p>
-   * Name of lithostartigraphic unit, 2nd level, where hydrocarbons were encountered.
+   * Name of lithostratigraphic unit, 2nd level, where hydrocarbons were encountered.
    * <p>
    * Examples of legal values:
    * <ul>
@@ -424,9 +424,9 @@ public final class NpdExplorationWellbore extends NpdWellbore
   }
 
   /**
-   * Return 2nd level of lithostartigraphic unit of this wellbore.
+   * Return 3rd level of lithostratigraphic unit of this wellbore.
    * <p>
-   * Name of lithostartigraphic unit, 3rd level, where hydrocarbons were encountered.
+   * Name of lithostratigraphic unit, 3rd level, where hydrocarbons were encountered.
    * <p>
    * Examples of legal values:
    * <ul>
@@ -486,7 +486,7 @@ public final class NpdExplorationWellbore extends NpdWellbore
   }
 
   /**
-   * Check if this wellbore hass been re-entered.
+   * Check if this wellbore has been re-entered.
    * <p>
    * Status whether the wellbore has been re-entered. When counting number of
    * wellbores on the Norwegian continental shelf, only those not reentered

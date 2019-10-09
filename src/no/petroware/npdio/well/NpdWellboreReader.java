@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import no.petroware.npdio.Util;
+import no.petroware.npdio.util.Util;
 
 /**
  * Reader for NPD wellbores.
@@ -250,9 +250,6 @@ public final class NpdWellboreReader
   private static final int O_UPDATED_DATE_INDEX = 45;
   private static final int O_DATESYNC_NPD_INDEX = 46;
 
-  /** NPD date format description */
-  private static final String DATE_FORMAT = "dd.MM.yyyy";
-
   /** The logger instance */
   private static final Logger logger_ = Logger.getLogger(NpdWellboreReader.class.getName());
 
@@ -413,7 +410,7 @@ public final class NpdWellboreReader
    *
    * @param tokens  Tokens of all wellbore attributes.
    * @return        The new NPD wellbore instance.
-   * @throws ParseException  If parsing any of the tokens failes.
+   * @throws ParseException  If parsing any of the tokens fails.
    */
   private static NpdWellbore newNpdOtherWellbore(String[] tokens)
     throws ParseException
@@ -557,7 +554,7 @@ public final class NpdWellboreReader
    *
    * @param tokens  Tokens of all wellbore attributes.
    * @return        The new NPD wellbore instance.
-   * @throws ParseException  If parsing any of the tokens failes.
+   * @throws ParseException  If parsing any of the tokens fails.
    */
   private static NpdWellbore newNpdExplorationWellbore(String[] tokens)
     throws ParseException
@@ -759,7 +756,7 @@ public final class NpdWellboreReader
    *
    * @param tokens  Tokens of all wellbore attributes.
    * @return        The new NPD wellbore instance.
-   * @throws ParseException  If parsing any of the tokens failes.
+   * @throws ParseException  If parsing any of the tokens fails.
    */
   private static NpdWellbore newNpdDevelopmentWellbore(String[] tokens)
     throws ParseException

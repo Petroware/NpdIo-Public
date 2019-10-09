@@ -38,7 +38,7 @@ public abstract class NpdObject
    * @param name             Object name. Non-null.
    * @param factPageUrl      URL to NPD fact page for this instance. Null if N/A.
    * @param factMapUrl       URL to NPD fact map for this instance. Null if N/A.
-   * @param lastChangedDate  Date this instance weas last changed at NPD. Null if unknown.
+   * @param lastChangedDate  Date this instance were last changed at NPD. Null if unknown.
    * @param syncDate         Date synced with NPD back-end database. Null if unknown.
    */
   protected NpdObject(String type,

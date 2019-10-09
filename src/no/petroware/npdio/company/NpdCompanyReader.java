@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
-import no.petroware.npdio.Util;
+import no.petroware.npdio.util.Util;
 
 /**
  * NPD company reader.
@@ -110,7 +110,7 @@ public final class NpdCompanyReader
       url = new URL(urlString);
     }
     catch (MalformedURLException exception) {
-      throw new IOException("Malformed URL: " + urlString);
+      throw new IOException("Malformed URL: " + urlString, exception);
     }
 
     // Open connection
@@ -120,10 +120,10 @@ public final class NpdCompanyReader
 
     try {
       // Skip past the header line
-      String line = reader.readLine();
+      reader.readLine();
 
       // Read line by line. There is data for one company per line
-      line = reader.readLine();
+      String line = reader.readLine();
       while (line != null) {
 
         // Skip empty lines
