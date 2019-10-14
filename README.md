@@ -100,7 +100,7 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read NPD fields
    //
-   String url = "https://npdfactpages.npd.no/..."; // Use NpdField link from table above
+   url = "https://npdfactpages.npd.no/..."; // Use NpdField link from table above
    NpdFieldReader fieldReader = new NpdFieldReader(url);
    List<NpdField> fields = fieldReader.read();
 
@@ -108,7 +108,7 @@ Below are a few examples on how to access some of the main data types from the N
    for (NpdField field : fields) {
 
      // Read field production
-     String url = "https://npdfactpages.npd.no/..."; // Use NpdProduction link from table above
+     url = "https://npdfactpages.npd.no/..."; // Use NpdProduction link from table above
      ProductionReader productionReader = new ProductionReader(url);
      productionReader.read(field);
 
