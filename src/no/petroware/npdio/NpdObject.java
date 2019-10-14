@@ -1,6 +1,12 @@
 package no.petroware.npdio;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Base class for all first-order NPD instances.
@@ -168,6 +174,85 @@ public abstract class NpdObject
   @Override
   public String toString()
   {
-    return name_;
+    //
+    // Find all getter methods and create the toString based on them
+    //
+
+    //
+    // Step 1: Extract all key/value pairs
+    //
+    Map<String, String> values = new TreeMap<String, String>();
+
+    try {
+      Method[] methods = getClass().getMethods();
+      for (Method method : methods) {
+        String name = method.getName();
+        boolean isGetter = name.startsWith("get");
+        boolean hasArguments = method.getParameterTypes().length > 0;
+        Class<?> returnType = method.getReturnType();
+        boolean returnsCollection = Arrays.asList(returnType.getInterfaces()).contains(Collection.class);
+
+        if (isGetter && !hasArguments && !returnsCollection) {
+          String key = getClass().getSimpleName() + "." + name.substring(3);
+          Object object = method.invoke(this);
+
+          String value;
+          if (object == null)
+            value = "";
+          else if (object == this)
+            value = "this";
+          else if (object instanceof NpdObject)
+            value = object.getClass().toString();
+          else
+            value = object.toString();
+
+          values.put(key, value);
+        }
+      }
+    }
+    catch (SecurityException exception) {
+      assert false : "Programming error: " + exception.getMessage();
+    }
+    catch (IllegalAccessException exception) {
+      assert false : "Programming error: " + exception.getMessage();
+    }
+    catch (InvocationTargetException exception) {
+      exception.printStackTrace();
+      assert false : "Programming error: " + exception.getCause().getMessage();
+    }
+
+    //
+    // Step 2: Create the output string
+    //
+
+    // Find the longest key
+    int maxKeyLength = 0;
+    for (Map.Entry<String, String> entry : values.entrySet()) {
+      int keyLength = entry.getKey().length();
+      if (keyLength > maxKeyLength)
+        maxKeyLength = keyLength;
+    }
+
+    // Build the output
+    StringBuilder s = new StringBuilder();
+    for (Map.Entry<String, String> entry : values.entrySet()) {
+      String key = entry.getKey();
+      String value = entry.getValue();
+
+      // "key"
+      s.append(key);
+
+      // "............."
+      for (int i = key.length(); i < maxKeyLength; i++)
+        s.append(".");
+
+      // ": value"
+      s.append(": " + value);
+
+      if (!value.endsWith("\n"))
+        s.append("\n");
+    }
+
+    return s.toString();
   }
 }

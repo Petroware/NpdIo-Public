@@ -41,6 +41,16 @@ public final class Production
     return Collections.unmodifiableList(entries_);
   }
 
+  /** {@inheritDoc} */
+  @Override
+  public String toString()
+  {
+    StringBuilder s = new StringBuilder();
+    for (Entry entry : entries_)
+      s.append(entry.toString() + '\n');
+    return s.toString();
+  }
+
   /**
    * One production entry, with total production for one month.
    * <p>
@@ -74,6 +84,8 @@ public final class Production
     /** Water production. Million Sm\u00b3. */
     private final double water_;
 
+    private final String npdidField_;
+
     /**
      * Create one production entry instance representing
      * the production of one month.
@@ -86,6 +98,7 @@ public final class Production
      * @param condensate     Net condensate production. Sm\u00b3.
      * @param oilEquivalents Net oil equivalents production. Sm\u00b3.
      * @param water          Water production. Sm\u00b3.
+     * @param npdidField     NPDID of the associated field.
      */
     Entry(int year,
           int month,
@@ -94,7 +107,8 @@ public final class Production
           double ngl,
           double condensate,
           double oilEquivalents,
-          double water)
+          double water,
+          String npdidField)
     {
       assert month >= 1 && month <= 12 : "Invalid month: " + month;
 
@@ -106,6 +120,7 @@ public final class Production
       condensate_ = condensate;
       oilEquivalents_ = oilEquivalents;
       water_ = water;
+      npdidField_ = npdidField;
     }
 
     /**
@@ -186,6 +201,11 @@ public final class Production
     public double getWater()
     {
       return water_;
+    }
+
+    String getNpdidField()
+    {
+      return npdidField_;
     }
 
     /** {@inheritDoc} */

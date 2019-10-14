@@ -1,5 +1,11 @@
-package no.petroware.npdio.util;
+package no.petroware.npdio;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,31 +13,45 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-
-import no.petroware.npdio.NpdObject;
+import java.util.logging.Logger;
+import java.util.logging.Level;
 
 /**
- * A collection of utilities for the NPD I/O library.
- * <p>
- * This class is public as a side-effect. It is used by the reader classes
- * and is not meant for client access.
- * <p>
- * This class is thread-safe.
+ * Base class for the NPD readers.
  *
  * @author <a href="mailto:info@petroware.no">Petroware AS</a>
  */
-public final class Util
+public abstract class NpdReader<T>
 {
   /** NPD date format description */
   private static final String DATE_FORMAT = "dd.MM.yyyy";
 
+  /** The logger instance */
+  private static final Logger logger_ = Logger.getLogger(NpdReader.class.getName());
+
+  /** URL of file to read. Non-null. */
+  private final String url_;
+
   /**
-   * Private constructor to prevent instantiation.
+   * Create an NPD reader instance.
+   *
+   * @param url  URL of file to read. Non-null.
    */
-  private Util()
+  protected NpdReader(String url)
   {
-    assert false : "This should never be called";
+    assert url != null : "url cannot be null";
+    url_ = url;
   }
+
+  /**
+   * Create a new instance from the tokens read from the file.
+   *
+   * @param tokens  Tokens read from file. Non-null.
+   * @return        The requested instance. Never null.
+   * @throws ParseException  If the yokens cannot be parsed into a NPD instance
+   *                         of the correct type.
+   */
+  protected abstract T newInstance(String[] tokens) throws ParseException;
 
   /**
    * Convert specified text to its corresponding NpdObject class.
@@ -39,7 +59,7 @@ public final class Util
    * @param text  Text to convert. May be null.
    * @return      NpdObject class equivalent. Null if not found.
    */
-  public static Class<? extends NpdObject> parseClass(String text)
+  protected static Class<? extends NpdObject> parseClass(String text)
   {
     if (text == null)
       return null;
@@ -59,7 +79,7 @@ public final class Util
    * @return      Boolean equivalent. True if text is "Y", "YES" or similar,
    *              false otherwise.
    */
-  public static Boolean parseBoolean(String text)
+  protected static Boolean parseBoolean(String text)
   {
     if (text == null)
       return null;
@@ -80,7 +100,7 @@ public final class Util
    * @return      Integer equivalent. Null if text is null or empty.
    * @throws ParseException  If text cannot be converted to int.
    */
-  public static Integer parseInt(String text)
+  protected static Integer parseInt(String text)
     throws ParseException
   {
     if (text == null || text.isEmpty())
@@ -101,7 +121,7 @@ public final class Util
    * @return      Double equivalent. Null if text is null or empty.
    * @throws ParseException  If text cannot be converted to double.
    */
-  public static Double parseDouble(String text)
+  protected static Double parseDouble(String text)
     throws ParseException
   {
     if (text == null || text.isEmpty())
@@ -122,7 +142,7 @@ public final class Util
    * @return      Date equivalent. null if text is empty.
    * @throws ParseException  If text cannot be converted to a date.
    */
-  public static Date parseDate(String text)
+  protected static Date parseDate(String text)
     throws ParseException
   {
     if (text == null || text.isEmpty())
@@ -158,7 +178,7 @@ public final class Util
    * @return  Individual tokens. Never null.
    * @throws IllegalArgumentException  If line is null.
    */
-  public static String[] csvSplit(String line)
+  private static String[] csvSplit(String line)
   {
     if (line == null)
       throw new IllegalArgumentException("line cannot be null");
@@ -191,10 +211,83 @@ public final class Util
       if (token.startsWith("\"") && token.endsWith("\""))
         token = token.substring(1, token.length() - 1);
 
+      // Double quote is CSV for a quoute
+      token = token.replaceAll("\"\"", "\"");
+
       tokens[i] = token;
     }
 
     return tokens;
   }
-}
 
+  /**
+   * Read file.
+   *
+   * @return  The read instances. Never null.
+   * @throws IOException  If the read operation fails for some reason.
+   */
+  public List<T> read()
+    throws IOException
+  {
+    // Prepare return structure
+    List<T> instances = new ArrayList<>();
+
+    // Create URL instance from the specified string
+    URL url;
+    try {
+      url = new URL(url_);
+    }
+    catch (MalformedURLException exception) {
+      throw new IOException("Malformed URL: " + url_, exception);
+    }
+
+    // Open connection
+    logger_.log(Level.INFO, "Connecting to : " + url);
+    InputStream stream = url.openStream();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
+
+    try {
+      // Skip past the header line
+      reader.readLine();
+
+      // Read line by line. There is data entry per line
+      while (true) {
+        String line = reader.readLine();
+        if (line == null)
+          break;
+
+        // Skip empty lines
+        if (line.trim().length() == 0)
+          continue;
+
+        // Capture the tokens
+        String[] tokens = csvSplit(line);
+
+        // Trim and nullify
+        for (int i = 0; i < tokens.length; i++) {
+          String token = tokens[i];
+          String newToken = token.trim();
+
+          if (newToken.length() == 0)
+            newToken = null;
+          tokens[i] = newToken;
+        }
+
+        try {
+          T instance = newInstance(tokens);
+          instances.add(instance);
+        }
+        catch (ParseException exception) {
+          logger_.log(Level.WARNING, "Skip illegal line: " + line, exception);
+        }
+      }
+    }
+    finally {
+      reader.close();
+    }
+
+    logger_.log(Level.INFO, "Read " + instances.size() + " NPD instances OK.");
+
+    return instances;
+  }
+}

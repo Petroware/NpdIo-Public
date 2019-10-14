@@ -1,19 +1,9 @@
 package no.petroware.npdio.license;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.logging.Logger;
-import java.util.logging.Level;
 
-import no.petroware.npdio.util.Util;
+import no.petroware.npdio.NpdReader;
 
 /**
  * NPD license reader.
@@ -22,8 +12,28 @@ import no.petroware.npdio.util.Util;
  *
  * @author <a href="mailto:info@petroware.no">Petroware AS</a>
  */
-public final class NpdLicenseReader
+public final class NpdLicenseReader extends NpdReader<NpdLicense>
 {
+  /**
+   * The license properties and their order is as follows:
+   *
+   *   prlName
+   *   prlLicensingActivityName
+   *   prlMainArea
+   *   prlStatus
+   *   prlStratigraphical
+   *   prlDateGranted
+   *   prlDateValidTo
+   *   prlOriginalArea
+   *   prlCurrentArea
+   *   prlPhaseCurrent
+   *   prlNpdidLicence
+   *   prlFactPageUrl
+   *   prlFactMapUrl
+   *   prlDateUpdated
+   *   prlDateUpdatedMax
+   *   DatesyncNPD
+   */
   private static final int NAME_INDEX = 0;
   private static final int ACTIVITY_INDEX = 1;
   private static final int MAIN_AREA_INDEX = 2;
@@ -37,45 +47,53 @@ public final class NpdLicenseReader
   private static final int NPDID_INDEX = 10;
   private static final int FACT_PAGE_URL_INDEX = 11;
   private static final int FACT_MAP_URL_INDEX = 12;
-  private static final int DATE_MAIN_LEVEL_UPDATED_INDEX = 13;
-  private static final int DATE_ALL_UPDATED_INDEX = 14;
+  private static final int MAIN_LEVEL_UPDATED_DATE_INDEX = 13;
+  private static final int LAST_CHANGED_DATE_INDEX = 14;
   private static final int SYNC_DATE_INDEX = 15;
 
-  /** The logger instance */
-  private static final Logger logger_ = Logger.getLogger(NpdLicenseReader.class.getName());
+  /**
+   * Create a reader for NPD licenses.
+   *
+   * @param url  Location of file to read. Non-null.
+   * @throws IllegalArgumentException  If url is null.
+   */
+  public NpdLicenseReader(String url)
+  {
+    super(url);
+  }
 
   /**
    * Create a new NPD license instance from the given tokens.
    *
-   * @param tokens  Tokens that makes up one row in the license database table. Non-null.
+   * @param tokens  Tokens that makes up one row in the license file. Non-null.
    * @return        The created license instance. Never null.
    * @throws ParseException  If some of the tokens doesn't meet the requirements for its
    *                property.
    */
-  private static NpdLicense newNpdLicense(String[] tokens)
+  protected NpdLicense newInstance(String[] tokens)
     throws ParseException
   {
+    assert tokens != null : "tokens cannot be null";
+
     if (tokens.length != 16)
       throw new ParseException("Invalid number of tokens: " + tokens.length, 0);
 
-    //
-    // Capture all the license attributes
-    //
     String npdId = tokens[NPDID_INDEX];
     String name = tokens[NAME_INDEX];
     String activity = tokens[ACTIVITY_INDEX];
     String mainArea = tokens[MAIN_AREA_INDEX];
     String status = tokens[STATUS_INDEX];
     String stratigraphical = tokens[STRATIGRAPHICAL_INDEX];
-    Date dateGranted = Util.parseDate(tokens[DATE_GRANTED_INDEX]);
-    Date validToDate = Util.parseDate(tokens[VALID_TO_DATE_INDEX]);
-    double originalArea = 1000.0 * 1000.0 * Util.parseDouble(tokens[ORIGINAL_AREA_INDEX]);
-    double currentArea = 1000.0 * 1000.0 * Util.parseDouble(tokens[CURRENT_AREA_INDEX]);
+    Date dateGranted = parseDate(tokens[DATE_GRANTED_INDEX]);
+    Date validToDate = parseDate(tokens[VALID_TO_DATE_INDEX]);
+    double originalArea = 1000.0 * 1000.0 * parseDouble(tokens[ORIGINAL_AREA_INDEX]);
+    double currentArea = 1000.0 * 1000.0 * parseDouble(tokens[CURRENT_AREA_INDEX]);
     String phase = tokens[PHASE_INDEX];
     String factPageUrl = tokens[FACT_PAGE_URL_INDEX];
     String factMapUrl = tokens[FACT_MAP_URL_INDEX];
-    Date lastChangedDate = Util.parseDate(tokens[DATE_ALL_UPDATED_INDEX]);
-    Date syncDate = Util.parseDate(tokens[SYNC_DATE_INDEX]);
+    Date mainLevelUpdatedDate = parseDate(tokens[MAIN_LEVEL_UPDATED_DATE_INDEX]);
+    Date lastChangedDate = parseDate(tokens[LAST_CHANGED_DATE_INDEX]);
+    Date syncDate = parseDate(tokens[SYNC_DATE_INDEX]);
 
     return new NpdLicense(npdId,
                           name,
@@ -92,80 +110,5 @@ public final class NpdLicenseReader
                           factMapUrl,
                           lastChangedDate,
                           syncDate);
-  }
-
-  /**
-   * Read licenses from the specified NPD URL.
-   *
-   * @param urlString  URL to the license table. Non-null.
-   * @return           List of licenses read. Never null.
-   * @throws IllegalArgumentException  If urlString is null.
-   * @throws IOException  If the read operation failed for some reason.
-   */
-  public static List<NpdLicense> readLicenses(String urlString)
-    throws IOException
-  {
-    if (urlString == null)
-      throw new IllegalArgumentException("urlString cannot be null");
-
-    // Prepare return structure
-    List<NpdLicense> licenses = new ArrayList<>();
-
-    // Create URL instance from the specified string
-    URL url;
-    try {
-      url = new URL(urlString);
-    }
-    catch (MalformedURLException exception) {
-      throw new IOException("Malformed URL: " + urlString, exception);
-    }
-
-    // Open connection
-    logger_.log(Level.INFO, "Connecting to : " + url);
-    InputStream stream = url.openStream();
-    BufferedReader reader = new BufferedReader(new InputStreamReader(stream, "UTF-8"));
-
-    try {
-      // Skip past the header line
-      reader.readLine();
-
-      // Read line by line. There is data for one license per line
-      while (true) {
-        String line = reader.readLine();
-        if (line == null)
-          break;
-
-        // Skip empty lines
-        if (line.trim().length() == 0)
-          continue;
-
-        // Capture the tokens
-        String[] tokens = Util.csvSplit(line);
-
-        // Trim and nullify
-        for (int i = 0; i < tokens.length; i++) {
-          String token = tokens[i];
-          String newToken = token.trim();
-          if (newToken.length() == 0)
-            newToken = null;
-          tokens[i] = newToken;
-        }
-
-        try {
-          NpdLicense license = newNpdLicense(tokens);
-          licenses.add(license);
-        }
-        catch (ParseException exception) {
-          logger_.log(Level.WARNING, "Skip illegal line: " + line, exception);
-        }
-      }
-    }
-    finally {
-      reader.close();
-    }
-
-    logger_.log(Level.INFO, "Read " + licenses.size() + " licenses OK.");
-
-    return licenses;
   }
 }
