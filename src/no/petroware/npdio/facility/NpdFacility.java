@@ -17,6 +17,9 @@ public abstract class NpdFacility extends NpdObject
   /** Functions of this facility. May be null if unknown. */
   private final String functions_;
 
+  /**
+   * Create an NPD facility instance.
+   */
   protected NpdFacility(String type,
                         String npdId,
                         String name,
@@ -36,36 +39,40 @@ public abstract class NpdFacility extends NpdObject
   /**
    * Return kind of this facility.
    * <p>
+   * <b>NPD description:</b><br>
+   * Kind of facility.
    * Example of legal values:
    * <ul>
-   *   <li>CONCRETE STRUCTURE
-   *   <li>CONDEEP 3 SHAFTS
-   *   <li>CONDEEP 4 SHAFTS
-   *   <li>CONDEEP MONOSHAFT
-   *   <li>DORIS
-   *   <li>FPSO
-   *   <li>FSU
-   *   <li>JACKET 12 LEGS
-   *   <li>JACKET 4 LEGS
-   *   <li>JACKET 6 LEGS
-   *   <li>JACKET 8 LEGS
-   *   <li>JACKET TRIPOD
-   *   <li>JACK-UP 3 LEGS
-   *   <li>JACK-UP 4 LEGS
-   *   <li>LOADING SYSTEM
-   *   <li>MONOTOWER
-   *   <li>MULTI WELL TEMPLATE
-   *   <li>ONSHORE FACILITY
-   *   <li>SEMISUB CONCRETE
-   *   <li>SEMISUB STEEL
-   *   <li>SINGLE WELL TEMPLATE
-   *   <li>SUBSEA STRUCTURE
-   *   <li>TLP CONCRETE
-   *   <li>TLP STEEL
-   *   <li>VESSEL
+   *   <li>CONCRETE STRUCTURE</li>
+   *   <li>CONDEEP 3 SHAFTS</li>
+   *   <li>CONDEEP 4 SHAFTS</li>
+   *   <li>CONDEEP MONOSHAFT</li>
+   *   <li>DORIS</li>
+   *   <li>FPSO</li>
+   *   <li>FSU</li>
+   *   <li>JACKET 12 LEGS</li>
+   *   <li>JACKET 4 LEGS</li>
+   *   <li>JACKET 6 LEGS</li>
+   *   <li>JACKET 8 LEGS</li>
+   *   <li>JACKET TRIPOD</li>
+   *   <li>JACK-UP 3 LEGS</li>
+   *   <li>JACK-UP 4 LEGS</li>
+   *   <li>LOADING SYSTEM</li>
+   *   <li>MONOTOWER</li>
+   *   <li>MULTI WELL TEMPLATE</li>
+   *   <li>ONSHORE FACILITY</li>
+   *   <li>SEMISUB CONCRETE</li>
+   *   <li>SEMISUB STEEL</li>
+   *   <li>SINGLE WELL TEMPLATE</li>
+   *   <li>SUBSEA STRUCTURE</li>
+   *   <li>TLP CONCRETE</li>
+   *   <li>TLP STEEL</li>
+   *   <li>VESSEL</li>
    * </ul>
+   * <p>
+   * varchar(40), corresponds to NPD property <em>fclKind</em>.
    *
-   * @return   Kind of this facility. Null if unknown.
+   * @return  Kind of this facility. Null if N/A or unknown.
    */
   public String getKind()
   {
@@ -78,51 +85,52 @@ public abstract class NpdFacility extends NpdObject
    * <p>
    * Examples:
    * <ul>
-   *   <li>DRILLING
-   *   <li> DRILLING TEMPLATE
-   *   <li> FIELD CONTROL CENTER
-   *   <li> FISCAL METERING
-   *   <li> FLARE STACK
-   *   <li> FLOTEL
-   *   <li> FULL STABILIZATION
-   *   <li> GAS EXPORT
-   *   <li> GAS INJECTION
-   *   <li> GAS INJECTOR
-   *   <li> GAS PRODUCER
-   *   <li> ISOLATION VALVE
-   *   <li> LOADING BOUY
-   *   <li> MANIFOLD
-   *   <li> MANIFOLD STATION
-   *   <li> OFFLOADING
-   *   <li> OIL PRODUCER
-   *   <li> PIG RECIVER
-   *   <li> PIPELINE END MANIFOLD
-   *   <li> QUARTER
-   *   <li> RISER
-   *   <li> RISER BASE
-   *   <li> RISER SUPPORT
-   *   <li> SEPARATION
-   *   <li> SILO
-   *   <li> STORAGE
-   *   <li> T-CONNECTION
-   *   <li> TERMINAL
-   *   <li> TRAWLGEAR PROTECTION
-   *   <li> TUNNEL
-   *   <li> UMBILICAL SUPPORT
-   *   <li> WATER INJECTION
-   *   <li> WATER/GAS INJECTION
-   *   <li> WELLHEAD
-   *   <li> Y-CONNECTION
-   *   <li> PROCESSING
-   *   <li> ACCOMMODATION
-   *   <li> SUPPORT
-   *   <li> BOOSTER
-   *   <li> DISTRIBUTION
-   *   <li> WATER PRODUCER
+   *   <li>DRILLING</li>
+   *   <li>DRILLING TEMPLATE</li>
+   *   <li>FIELD CONTROL CENTER</li>
+   *   <li>FISCAL METERING</li>
+   *   <li>FLARE STACK</li>
+   *   <li>FLOTEL</li>
+   *   <li>FULL STABILIZATION</li>
+   *   <li>GAS EXPORT</li>
+   *   <li>GAS INJECTION</li>
+   *   <li>GAS INJECTOR</li>
+   *   <li>GAS PRODUCER</li>
+   *   <li>ISOLATION VALVE</li>
+   *   <li>LOADING BOUY</li>
+   *   <li>MANIFOLD</li>
+   *   <li>MANIFOLD STATION</li>
+   *   <li>OFFLOADING</li>
+   *   <li>OIL PRODUCER</li>
+   *   <li>PIG RECIVER</li>
+   *   <li>PIPELINE END MANIFOLD</li>
+   *   <li>QUARTER</li>
+   *   <li>RISER</li>
+   *   <li>RISER BASE</li>
+   *   <li>RISER SUPPORT</li>
+   *   <li>SEPARATION</li>
+   *   <li>SILO</li>
+   *   <li>STORAGE</li>
+   *   <li>T-CONNECTION</li>
+   *   <li>TERMINAL</li>
+   *   <li>TRAWLGEAR PROTECTION</li>
+   *   <li>TUNNEL</li>
+   *   <li>UMBILICAL SUPPORT</li>
+   *   <li>WATER INJECTION</li>
+   *   <li>WATER/GAS INJECTION</li>
+   *   <li>WELLHEAD</li>
+   *   <li>Y-CONNECTION</li>
+   *   <li>PROCESSING</li>
+   *   <li>ACCOMMODATION</li>
+   *   <li>SUPPORT</li>
+   *   <li>BOOSTER</li>
+   *   <li>DISTRIBUTION</li>
+   *   <li>WATER PRODUCER</li>
    * </ul>
    * or a combination of these.
+   * varchar(400), corresponds to NPD property <em>fclFunctions</em>.
    *
-   * @return  Functions of this facility. Null if unknown.
+   * @return  Functions of this facility. Null if N/A or unknown.
    */
   public String getFunctions()
   {

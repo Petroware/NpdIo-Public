@@ -23,6 +23,9 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
 
   private final String npdidTargetProductionLicense_;
 
+  /**
+   * Create an NPS development wellbore instance.
+   */
   NpdDevelopmentWellbore(String npdId,
                          String name,
                          String wellName,
@@ -184,7 +187,9 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return the pre drill entry date of this wellbore.
    * <p>
-   * Date when the predrilling activity of the wellbore started (see also Entry date).
+   * <b>NPD description:</b><br>
+   * Date when the predrilling activity of the wellbore started (see also
+   * Entry date).
    * <p>
    * datetime, corresponds to the NPD property <em>wlbEntryPreDrillDate</em>.
    *
@@ -198,6 +203,7 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return the pre drill completion date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Date when the predrilling activity of the wellbore was completed
    * (see also completion date).
    * <p>
@@ -213,6 +219,7 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return production facility of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * The NPD's name for the production facility, for development wells.
    * <p>
    * varchar(50), corresponds to the NPD property <em>wlbProductionFacility</em>.
@@ -227,6 +234,7 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return planned content of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Only relevant for development wellbores, planned type of produced or injected fluid.<br>
    * Examples of legal values:
    * <ul>
@@ -251,6 +259,7 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return ID of the producing facility of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the production facility, for development wellbores.
    * <p>
    * bigint, corresponds to the NPD property <em>fclNpdidFacilityProducing</em>.
@@ -265,8 +274,8 @@ public final class NpdDevelopmentWellbore extends NpdWellbore
   /**
    * Return ID of the target production license.
    * <p>
+   * <b>NPD description:</b><br>
    * NPDID production license target.
-   * <p>
    * NPD unique key for the production license of the wellbore target.
    * This can be another production license then where the wellhead
    * position.

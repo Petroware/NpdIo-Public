@@ -43,6 +43,9 @@ public final class NpdFixedFacility extends NpdFacility
 
   private final Integer designedLifetime_;
 
+  /**
+   * Create a NPD fixed facility.
+   */
   NpdFixedFacility(String npdId,
                    String name,
                    String kind,

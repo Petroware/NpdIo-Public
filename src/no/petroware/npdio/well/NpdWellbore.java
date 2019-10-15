@@ -41,43 +41,19 @@ public class NpdWellbore extends NpdObject
   private final Integer entryYear_;
   private final Integer completionYear_;
   private final String reclassFromWellbore_;
-
-  /**
-   * Date when the wellbore was reclassified from exploration wellbore to
-   * development wellbore or reverse.
-   */
   private final Date reclassificationDate_;
-
-  /**
-   * Name of the site survey as reported to NPD in system for reporting
-   * site surveys, seismic and electromagnetic activities.
-   */
   private final String siteSurvey_;
 
-  /**
-   * NPDID for the site survey
-   */
+  /** NPDID for the site survey. */
   private final String npdidSiteSurvey_;
 
-  /**
-   * Plugged and abandon date.
-   * <p>
-   * datetime
-   */
+  /** Plugged and abandon date. */
   private final Date pluggedAndAbandonDate_;
 
-  /**
-   * Plugged date.
-   * <p>
-   * datetime
-   */
+  /** Plugged date. */
   private final Date pluggedDate_;
 
-  /**
-   * Prod. license for drilling target
-   * <p>
-   * varchar(10)
-   */
+  /** Prod. license for drilling target. */
   private final String licenseTargetName_;
 
   private final Integer plotSymbol_;
@@ -113,6 +89,9 @@ public class NpdWellbore extends NpdObject
   private final Date mainLevelUpdatedDate_;
   private final Date updatedDate_;
 
+  /**
+   * Create an NPD wellbore instance.
+   */
   NpdWellbore(String type,
               String npdId,
               String name,
@@ -261,12 +240,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return name of parent well of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Official name of the parent well for the wellbore based on NPD guidelines for
    * designation of wells and wellbores.
    * <p>
    * varchar(40), corresponds to NPD property <em>wlbWell</em>.
    *
-   * @return  Name of parent well of this wellbore.
+   * @return  Name of parent well of this wellbore. Null if N/A or unknown.
    */
   public String getWellName()
   {
@@ -276,11 +256,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return drilling operator of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the company responsible for drilling the wellbore.
    * <p>
    * varchar(60), corresponds to NPD property <em>wlbDrillingOperator</em>.
    *
-   * @return  Drilling operator of this wellbore.
+   * @return  Drilling operator of this wellbore. Null if N/A or unknown.
    */
   public String getDrillingOperator()
   {
@@ -290,11 +271,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Get production license of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Official designation of the production license the wellbore was drilled in.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbProductionLicence</em>.
    *
-   * @return  Production license of this wellbore.
+   * @return  Production license of this wellbore. Null if N/A or unknown.
    */
   public String getProductionLicense()
   {
@@ -304,6 +286,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Get status of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Legal values includes:
    * <ul>
    *   <li>BLOWOUT (a blowout has occurred in the well)</li>
@@ -321,7 +304,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbStatus</em>.
    *
-   * @return  Status of this wellbore.
+   * @return  Status of this wellbore. Null if N/A or unknown.
    */
   public String getStatus()
   {
@@ -331,6 +314,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return purpose of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Final classification of the wellbore.
    * <p>
    * Legal values for exploration wellbores:
@@ -357,7 +341,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbPurpose</em>.
    *
-   * @return  Purpose of this wellbore.
+   * @return  Purpose of this wellbore. Null if N/A or unknown.
    */
   public String getPurpose()
   {
@@ -365,8 +349,9 @@ public class NpdWellbore extends NpdObject
   }
 
   /**
-   * Retur the planned purpose of this wellbore.
+   * Return the planned purpose of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Pre-drill purpose of the wellbore.
    * <p>
    * Legal values for exploration wellbores:
@@ -385,7 +370,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbPurposePlanned</em>.
    *
-   * @return  Planned purpose of this wellbore.
+   * @return  Planned purpose of this wellbore. Null if N/A or unknown.
    */
   public String getPurposePlanned()
   {
@@ -395,6 +380,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return content of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * For exploration wellbores, status of discovery.
    * <p>
    * Legal values:
@@ -429,7 +415,7 @@ public class NpdWellbore extends NpdObject
    * </ul>
    * varchar(40), corresponds to the NPD property <em>wlbContent</em>.
    *
-   * @return  Content of this wellbore.
+   * @return  Content of this wellbore. Null if N/A or unknown.
    */
   public String getContent()
   {
@@ -439,16 +425,18 @@ public class NpdWellbore extends NpdObject
   /**
    * Return type of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
+   * <p>
    * Legal values:
    * <ul>
    *   <li>EXPLORATION</li>
    *   <li>DEVELOPMENT</li>
-   *   <li>OTHER (see 'Purpose' for more information)</li>
+   *   <li>OTHER (see "Purpose" for more information)</li>
    * </ul>
    * <p>
    * varchar(20), corresponds to the NPD property <em>wlbWellType</em>.
    *
-   * @return  Type of this wellbore.
+   * @return  Type of this wellbore. Null if N/A or unknown.
    */
   public String getWellType()
   {
@@ -457,9 +445,15 @@ public class NpdWellbore extends NpdObject
 
   /**
    * Indicates if the well is completed on the seabed.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Indicates if the well is completed on the seabed.
+   * Legal values are 'YES' or 'NO'.
+   * <p>
+   * varchar(3), corresponds to the NPD property <em>wlbSubSea</em>.
    *
    * @return  True if the well is completed on the seabed, false otherwise.
-   *          Null if the feature is not specified.
+   *           Null if N/A or unknown.
    */
   public Boolean isSubsea()
   {
@@ -469,11 +463,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return entry date of this wellbore.
    * <p>
-   * The date when the drill bit penetrated the earth's crust / sea floor.
+   * <b>NPD description:</b><br>
+   * The date when the drill bit penetrated the earths crust / sea floor.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbEntryDate</em>.
    *
-   * @return  Entry date of this wellbore.
+   * @return  Entry date of this wellbore. Null if N/A or unknown.
    */
   public Date getEntryDate()
   {
@@ -483,6 +478,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return completion date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Exploration wellbores from moveable facilities:
    * <p>
    *   For floating facilities - date when anchor handling is started.<br>
@@ -495,7 +491,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * datetime, corresponds to the NPD property <em>wlbCompletionDate</em>.
    *
-   * @return  Completion date of this wellbore.
+   * @return  Completion date of this wellbore. Null if N/A or unknown.
    */
   public Date getCompletionDate()
   {
@@ -505,11 +501,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Field of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the field the wellbore is related to.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbField</em>.
    *
-   * @return  Field of this wellbore.
+   * @return  Field of this wellbore. Null if N/A or unknown.
    */
   public String getField()
   {
@@ -519,12 +516,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return drill permit of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * The drilling permit number together with the version of the drilling
    * permit as stated in the drilling permit granted by the NPD.
    * <p>
    * varchar(10), corresponds to the NPD property <em>wlbDrillPermit</em>.
    *
-   * @return  Drill permit of this wellbore.
+   * @return  Drill permit of this wellbore. Null if N/A or unknown.
    */
   public String getDrillPermit()
   {
@@ -534,11 +532,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return discovery of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the discovery the wellbore is related to.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbDiscovery</em>.
    *
-   * @return  Discovery of this wellbore.
+   * @return  Discovery of this wellbore. Null if N/A or unknown.
    */
   public String getDiscovery()
   {
@@ -548,6 +547,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return if this is a discovery wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Indicator which tells if the wellbore made a new discovery.
    * <p>
    * varchar(3), corresponds to the NPD property <em>wlbDiscoveryWellbore</em>.
@@ -562,11 +562,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Kelly bushing elevation of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Elevation of the rotary kelly bushing (RKB) above mean sea level.
    * <p>
    * numeric, corresponds to the NPD property <em>wlbKellyBushElevation</em>.
    *
    * @return  Kelly bushing elevation of this wellbore in meters.
+   *          Null if N/A or unknown.
    */
   public Double getKellyBushElevation()
   {
@@ -576,12 +578,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return final vertical depth of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Vertical elevation from total depth to kelly bushing.
    * Often referred to as true vertical depth (TVD).
    * <p>
    * real, corresponds to the NPD property <em>wlbFinalVerticalDepth</em>.
    *
    * @return  Final vertical depth of this wellbore in meters.
+   *          Null if N/A or unknown.
    */
   public Double getFinalVerticalDepth()
   {
@@ -591,12 +595,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return total depth of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Total measured length of wellbore from kelly bushing to
    * total depth (driller's depth).
    * <p>
    * numeric, corresponds to the NPD property <em>wlbTotalDepth</em>.
    *
-   * @return  Total depth of this wellbore in meters.
+   * @return  Total depth of this wellbore in meters. Null if N/A or unknown.
    */
   public Double getTotalDepth()
   {
@@ -606,11 +611,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return water depth of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Depth in meters between mean sea level and sea floor.
    * <p>
    * numeric, corresponds to the NPD property <em>wlbWaterDepth</em>.
    *
-   * @return  Water depth of this wellbore in meters.
+   * @return  Water depth of this wellbore in meters. Null if N/A or unknown.
    */
   public Double getWaterDepth()
   {
@@ -619,8 +625,16 @@ public class NpdWellbore extends NpdObject
 
   /**
    * Depth the wellbore originates from within the original wellbore.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Depth from where the wellbore is kicked off from the original or
+   * previous wellbore (MD). Missing data will be populated continuously,
+   * with newer wellbores being prioritized.
+   * <p>
+   * numeric, corresponds to the NPD property <em>wlbKickOffPoint</em>.
    *
    * @return  Depth the wellbore originates from within the original wellbore.
+   *          Null if N/A or unknown.
    */
   public Double getKickOffPoint()
   {
@@ -630,8 +644,8 @@ public class NpdWellbore extends NpdObject
   /**
    * Return main area of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the area on the Norwegian Continental Shelf where the wellbore is located.
-   * <p>
    * Legal values:
    * <ul>
    *   <li>BARENTS SEA</li>
@@ -641,7 +655,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbMainArea</em>.
    *
-   * @return  Main area of this wellbore.
+   * @return  Main area of this wellbore. Null if N/A or unknown.
    */
   public String getMainArea()
   {
@@ -655,7 +669,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(50), corresponds to the NPD property <em>wlbDrillingFacility</em>.
    *
-   * @return  Drilling facility of this wellbore.
+   * @return  Drilling facility of this wellbore. Null if N/A or unknown.
    */
   public String getDrillingFacility()
   {
@@ -665,6 +679,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return drilling facility type of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Kind of drilling facility.
    * <p>
    * Example of legal values:
@@ -687,7 +702,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbFacilityTypeDrilling</em>.
    *
-   * @return  Kind of drilling facility of this wellbore.
+   * @return  Kind of drilling facility of this wellbore. Null if N/A or unknown.
    */
   public String getDrillingFacilityType()
   {
@@ -697,6 +712,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return drilling facility type of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Indicates if a moveable or fixed facility drilled the well.
    * <p>
    * Legal values;
@@ -707,7 +723,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * varchar(10), corresponds to the NPD property <em>wlbDrillingFacilityFixedOrMoveable</em>.
    *
-   * @return  Drilling facility category of this wellbore.
+   * @return  Drilling facility category of this wellbore. Null if N/A or unknown.
    */
   public String getDrillingFacilityCategory()
   {
@@ -717,12 +733,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return license activity of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the licensing activity the production license
    * the wellbore was drilled in, was awarded in.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbLicensingActivity</em>.
    *
-   * @return  License activity of this wellbore.
+   * @return  License activity of this wellbore. Null if N/A or unknown.
    */
   public String getLicensingActivity()
   {
@@ -732,6 +749,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return if this wellbore is multilateral.
    * <p>
+   * <b>NPD description:</b><br>
    * Indicator telling if the parent well is multilateral,
    * meaning it has more than one branch radiating from the main borehole.
    * See also NPD guidelines for designation of wells and wellbores.
@@ -748,11 +766,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Get entry year of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * The year when the drill bit penetrated the earth's crust / sea floor.
    * <p>
    * int, corresponds to the NPD property <em>wlbEntryYear</em>.
    *
-   * @return  Entry year of this wellbore.
+   * @return  Entry year of this wellbore. Null if N/A or unknown.
    */
   public Integer getEntryYear()
   {
@@ -762,12 +781,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return completion year of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * The year when the anchor handling started.
    * In case of jack-ups: the year the jacking-down started.
    * <p>
    * int, corresponds to the NPD property <em>wlbCompletionYear</em>.
    *
-   * @return  Completion year of this wellbore.
+   * @return  Completion year of this wellbore. Null if N/A or unknown.
    */
   public Integer getCompletionYear()
   {
@@ -777,13 +797,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Original wellbore of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * The original wellbore that this wellbore is reclassified from.
    * A wellbore can only be reclassified from exploration to development,
    * not the other way.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbReclassFromWellbore</em>.
    *
-   * @return  Original wellbore of this wellbore.
+   * @return  Original wellbore of this wellbore. Null if N/A or unknown.
    */
   public String getReclassFromWellbore()
   {
@@ -793,12 +814,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the reclassification date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Date when the wellbore was reclassified from exploration wellbore to
    * development wellbore or reverse.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbDateReclass</em>.
    *
-   * @return  Reclassification date of this wellbore. Null if N/A.
+   * @return  Reclassification date of this wellbore. Null if N/A or unknown.
    */
   public Date getReclassificationDate()
   {
@@ -808,12 +830,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the site survey of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the site survey as reported to NPD in system for reporting
    * site surveys, seismic and electromagnetic activities.
    * <p>
    * varchar(100), corresponds to NPD property <em>wlbSiteSurvey</em>.
    *
-   * @return  Site survey of this wellbore. Null if N/A.
+   * @return  Site survey of this wellbore. Null if N/A or unknown.
    */
   public String getSiteSurvey()
   {
@@ -823,11 +846,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the ID of the site survey of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPDID for the site survey.
    * <p>
    * int, corresponds to NPD property <em>wlbNpdidSiteSurvey</em>.
    *
-   * @return  Site survey of this wellbore. Null if N/A.
+   * @return  Site survey of this wellbore. Null if N/A or unknown.
    */
   public String getNpdidSiteSurvey()
   {
@@ -837,11 +861,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the plugged and abandon date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Plugged and abandon date.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbPluggedAbandonDate</em>.
    *
-   * @return  Plugged and abandon date for this wellbore. Null if N/A.
+   * @return  Plugged and abandon date for this wellbore. Null if N/A or unknown.
    */
   public Date getPluggedAndAbandonDate()
   {
@@ -851,11 +876,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the plugged date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Plugged date.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbPluggedDate</em>.
    *
-   * @return  Plugged date for this wellbore. Null if N/A.
+   * @return  Plugged date for this wellbore. Null if N/A or unknown.
    */
   public Date getPluggedDate()
   {
@@ -865,11 +891,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return the name of the production license of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Prod. license for drilling target.
    * <p>
    * varchar(10), corresponds to the NPD property <em>wlbLicenseTargetName</em>.
    *
-   * @return  License target name of this wellbore. Null if N/A.
+   * @return  License target name of this wellbore. Null if N/A or unknown.
    */
   public String getLicenseTargetName()
   {
@@ -879,11 +906,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Plot symbol of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's plot symbol number for wellbores.
    * <p>
    * int, corresponds to the NPD property <em>wlbPlotSymbol</em>.
    *
-   * @return  Plot symbol of this wellbore.
+   * @return  Plot symbol of this wellbore. Null if N/A or unknown.
    */
   public Integer getPlotSymbol()
   {
@@ -893,11 +921,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return geodetic datum of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Reference system for coordinates. Example of legal values: ED50.
    * <p>
    * varchar(6), corresponds to the NPD property <em>wlbGeodeticDatum</em>.
    *
-   * @return  Geodetic datum of this wellbore.
+   * @return  Geodetic datum of this wellbore. Null if N/A or unknown.
    */
   public String getGeodeticDatum()
   {
@@ -907,11 +936,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return NS degrees position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, north-south degrees.
    * <p>
    * int, corresponds to the NPD property <em>wlbNsDeg</em>.
    *
-   * @return  NS degrees position of this wellbore.
+   * @return  NS degrees position of this wellbore. Null if N/A or unknown.
    */
   public Integer getNsDeg()
   {
@@ -921,11 +951,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return NS minutes position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, north-south minutes.
    * <p>
    * int, corresponds to the NPD property <em>wlbNsMin</em>.
    *
-   * @return  NS minutes position of this wellbore.
+   * @return  NS minutes position of this wellbore. Null if N/A or unknown.
    */
   public Integer getNsMin()
   {
@@ -935,11 +966,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return NS seconds position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, north-south seconds (decimal number).
    * <p>
    * real, corresponds to the NPD property <em>wlbNsSec</em>.
    *
-   * @return  NS seconds position of this wellbore.
+   * @return  NS seconds position of this wellbore. Null if N/A or unknown.
    */
   public Double getNsSec()
   {
@@ -949,12 +981,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return NS position code of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Indicator which tells if the coordinate of the wellhead is on the
    * northern or southern hemisphere. Legal values: N, S.
    * <p>
    * varchar(1), corresponds to the NPD property <em>wlbNsCode</em>.
    *
-   * @return  NS position code of this wellbore.
+   * @return  NS position code of this wellbore. Null if N/A or unknown.
    */
   public String getNsCode()
   {
@@ -964,11 +997,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return EW degrees position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, east-west degrees.
    * <p>
    * int, corresponds to the NPD property <em>wlbEwDeg</em>.
    *
-   * @return  EW degrees position of this wellbore.
+   * @return  EW degrees position of this wellbore. Null if N/A or unknown.
    */
   public Integer getEwDeg()
   {
@@ -978,11 +1012,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return EW minutes position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, east-west minutes.
    * <p>
    * int, corresponds to the NPD property <em>wlbEwMin</em>.
    *
-   * @return  EW minutes position of this wellbore.
+   * @return  EW minutes position of this wellbore. Null if N/A or unknown.
    */
   public Integer getEwMin()
   {
@@ -992,11 +1027,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return EW seconds position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, east-west seconds (decimal number).
    * <p>
    * real, corresponds to the NPD property <em>wlbEwSec</em>.
    *
-   * @return  EW seconds position of this wellbore.
+   * @return  EW seconds position of this wellbore. Null if N/A or unknown.
    */
   public Double getEwSec()
   {
@@ -1006,12 +1042,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return EW position code of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Indicator which tells if the coordinate of the wellhead is on the
    * northern or southern hemisphere. Legal values: W, W.
    * <p>
    * varchar(1), corresponds to the NPD property <em>wlbEwCode</em>.
    *
-   * @return  EW position code of this wellbore.
+   * @return  EW position code of this wellbore. Null if N/A or unknown.
    */
   public String getEwCode()
   {
@@ -1021,7 +1058,7 @@ public class NpdWellbore extends NpdObject
   /**
    * Return complete UTM position of wellhead of this wellbore.
    *
-   * @return  Complete UTM position of this wellbore.
+   * @return  Complete UTM position of this wellbore. Never null.
    */
   public String getUtmPosition()
   {
@@ -1048,11 +1085,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return latitude of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, north-south, decimal degrees.
    * <p>
    * decimal, corresponds to the NPD property <em>wlbNsDecDeg</em>.
    *
-   * @return  Latitude of this wellbore.
+   * @return  Latitude of this wellbore. Null if N/A or unknown.
    */
   public Double getLatitude()
   {
@@ -1062,11 +1100,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return longitude of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Geographic coordinate of the wellhead, east-west, decimal degrees.
    * <p>
    * decimal, corresponds to the NPD property <em>wlbEwDesDeg</em>.
    *
-   * @return  Longitude of this wellbore.
+   * @return  Longitude of this wellbore. Null if N/A or unknown.
    */
   public Double getLongitude()
   {
@@ -1076,11 +1115,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return NS UTM position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Universal Transverse Mercator coordinate of the wellhead, north-south.
    * <p>
    * decimal, corresponds to the NPD property <em>wlbNsUtm</em>.
    *
-   * @return  NS UTM position of this wellbore in meters.
+   * @return  NS UTM position of this wellbore in meters. Null if N/A or unknown.
    */
   public Double getNsUtm()
   {
@@ -1090,11 +1130,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return EW UTM position of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Universal Transverse Mercator coordinate of the wellhead, east-west.
    * <p>
    * decimal, corresponds to the NPD property <em>wlbEwUtm</em>.
    *
-   * @return  EW UTM position of this wellbore in meters.
+   * @return  EW UTM position of this wellbore in meters. Null if N/A or unknown.
    */
   public Double getEwUtm()
   {
@@ -1104,11 +1145,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return UTM zone of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Universal Transverse Mercator zone. Examples of legal values: 31, 32, 33, 34.
    * <p>
    * int, corresponds to the NPD property <em>wlbUtmZone</em>.
    *
-   * @return  UTM zone of this wellbore.
+   * @return  UTM zone of this wellbore. Null if N/A or unknown.
    */
   public Integer getUtmZone()
   {
@@ -1118,13 +1160,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return part 1 of name of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Part 1 of the wellbore name. Tells quadrant number on the
    * Norwegian Continental Shelf the wellbore was drilled in.
    * Based on NPD guidelines for designation of wells and wellbores.
    * <p>
    * int, corresponds to the NPD property <em>wlbNamePart1</em>.
    *
-   * @return  Part 1 of name of this wellbore.
+   * @return  Part 1 of name of this wellbore. Null if N/A or unknown.
    */
   public Integer getNamePart1()
   {
@@ -1134,13 +1177,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return part 2 of name of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Part 2 of the wellbore name. Tells the block number the
    * wellbore was drilled in.
    * Based on NPD guidelines for designation of wells and wellbores.
    * <p>
    * int, corresponds to the NPD property <em>wlbNamePart2</em>.
    *
-   * @return  Part 2 of name of this wellbore.
+   * @return  Part 2 of name of this wellbore. Null if N/A or unknown.
    */
   public Integer getNamePart2()
   {
@@ -1150,13 +1194,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return part 3 of name of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Part 3 of the wellbore name. Tells the name of the installation the
    * wellbore was drilled from. Not used for exploration wellbores.
    * Based on NPD guidelines for designation of wells and wellbores.
    * <p>
    * varchar(1), corresponds to the NPD property <em>wlbNamePart3</em>.
    *
-   * @return  Part 3 of name of this wellbore.
+   * @return  Part 3 of name of this wellbore. Null if N/A or unknown.
    */
   public String getNamePart3()
   {
@@ -1166,12 +1211,13 @@ public class NpdWellbore extends NpdObject
   /**
    * Return part 4 of name of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Part 4 of the wellbore name. Serial number for the wellbore.
    * Based on NPD guidelines for designation of wells and wellbores.
    * <p>
    * int, corresponds to the NPD property <em>wlbNamePart4</em>.
    *
-   * @return  Part 4 of name of this wellbore.
+   * @return  Part 4 of name of this wellbore. Null if N/A or unknown.
    */
   public Integer getNamePart4()
   {
@@ -1181,13 +1227,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return part 5 of name of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Part 5 of the wellbore name. Used to indicate exploration wells planned
    * deviated (S), sidetracks (A, B,...), re-entries (R) or planned multilaterals (Y).
    * Based on NPD guidelines for designation of wells and wellbores.
    * <p>
    * varchar(2), corresponds to the NPD property <em>wlbNamePart5</em>.
    *
-   * @return  Part 5 of name of this wellbore.
+   * @return  Part 5 of name of this wellbore. Null if N/A or unknown.
    */
   public String getNamePart5()
   {
@@ -1197,13 +1244,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return part 6 of name of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Part 6 of the wellbore name. Serial number of re-entries or serial number of the
    * well tracks in multilatrals.
    * Based on NPD guidelines for designation of wells and wellbores.
    * <p>
    * varchar(2), corresponds to the NPD property <em>wlbNamePart6</em>.
    *
-   * @return  Part 6 of name of this wellbore.
+   * @return  Part 6 of name of this wellbore. Null if N/A or unknown.
    */
   public String getNamePart6()
   {
@@ -1213,11 +1261,12 @@ public class NpdWellbore extends NpdObject
   /**
    * DISKOS type of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Wellbore type - applicable for DISKOS.
    * <p>
    * varchar(20), corresponds to the NPD property <em>wlbDiskosWellboreType</em>.
    *
-   * @return  DISKOS type of this wellbore.
+   * @return  DISKOS type of this wellbore. Null if N/A or unknown.
    */
   public String getDiskosWellboreType()
   {
@@ -1227,11 +1276,12 @@ public class NpdWellbore extends NpdObject
   /**
    * DISKOS parent of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Wellbore parent - applicable for DISKOS.
    * <p>
    * varchar(40), corresponds to the NPD property <em>wlbDiskosWellboreParent</em>.
    *
-   * @return  DISKOS parent of this wellbore.
+   * @return  DISKOS parent of this wellbore. Null if N/A or unknown.
    */
   public String getDiskosWellboreParent()
   {
@@ -1241,11 +1291,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return ID of the discovery of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the discovery.
    * <p>
    * bigint, corresponds to the NPD property <em>dscNpdidDiscovery</em>.
    *
-   * @return  ID of the discovery of this wellbore.
+   * @return  ID of the discovery of this wellbore. Null if N/A or unknown.
    */
   public String getNpdidDiscovery()
   {
@@ -1255,11 +1306,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return ID of the field of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the field.
    * <p>
    * bigint, corresponds to the NPD property <em>fldNpdidField</em>.
    *
-   * @return  ID of the field of this wellbore.
+   * @return  ID of the field of this wellbore. Null if N/A or unknown.
    */
   public String getNpdidField()
   {
@@ -1269,14 +1321,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return QC date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Date quality control of the wellbore information was completed,
    * so it can be published on the internet as a "Well Data Summary Sheet"
-
    * wellbore with more information available than other wellbores.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbWdssQcDate</em>.
    *
-   * @return  QC date of this wellbore.
+   * @return  QC date of this wellbore. Null if N/A or unknown.
    */
   public Date getWdssQcDate()
   {
@@ -1286,12 +1338,15 @@ public class NpdWellbore extends NpdObject
   /**
    * Return release date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Date when raw data which has been reported to the authorities from the
    * wellbore is not confidential any longer. Normally 2 years after finishing
    * the drilling. May be earlier if the area of the production license is
    * relinquished.
+   * <p>
+   * datetime, corresponds to the NPD property <em>wlbReleasedDate</em>.
    *
-   * @return  Release date of this wellbore.
+   * @return  Release date of this wellbore. Null if N/A or unknown.
    */
   public Date getReleaseDate()
   {
@@ -1305,7 +1360,7 @@ public class NpdWellbore extends NpdObject
    * <p>
    * bigint, corresponds to the NPD property <em>prlNpdidProductionLicence</em>.
    *
-   * @return  ID of the production license of this wellbore.
+   * @return  ID of the production license of this wellbore. Null if N/A or unknown.
    */
   public String getNpdidProductionLicense()
   {
@@ -1315,11 +1370,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return ID of the drilling facility of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the facility that has drilled the wellbore.
    * <p>
    * bigint, corresponds to the NPD property <em>fclNpdidFacilityDrilling</em>.
    *
-   * @return  ID of the drilling facility of this wellbore.
+   * @return  ID of the drilling facility of this wellbore. Null if N/A or unknown.
    */
   public String getNpdidFacilityDrilling()
   {
@@ -1329,11 +1385,12 @@ public class NpdWellbore extends NpdObject
   /**
    * Return ID of the original wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the wellbore this wellbore was reclassified from.
    * <p>
    * bigint, corresponds to the NPD property <em>wlbNpdidWellboreReclass</em>.
    *
-   * @return  ID of original wellbore.
+   * @return  ID of original wellbore. Null if N/A or unknown.
    */
   public String getNpdidWellboreReclass()
   {
@@ -1343,13 +1400,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return main level updated date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Date when information about this wellbore was last updated or inserted
    * for the first time. The date will only be changed if the data in the
    * "Main level" in the tab "Wellbore" will be changed.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbDateUpdated</em>
    *
-   * @return  The main level updated date of this wellbore. Null if N/A.
+   * @return  The main level updated date of this wellbore. Null if N/A or unknown.
    */
   public Date getMainLevelUpdatedDate()
   {
@@ -1359,13 +1417,14 @@ public class NpdWellbore extends NpdObject
   /**
    * Return updated date of this wellbore.
    * <p>
+   * <b>NPD description:</b><br>
    * Date when any information about this wellbore was last updated or inserted
    * for the first time. The date also will bli change if some of the data
    * in the "Sub levels" in the tab "Wellbore" will be changed.
    * <p>
    * datetime, corresponds to the NPD property <em>wlbDateUpdatedMax</em>
    *
-   * @return The updated date of this wellbore.
+   * @return The updated date of this wellbore. Null if N/A or unknown.
    */
   public Date getUpdatedDate()
   {

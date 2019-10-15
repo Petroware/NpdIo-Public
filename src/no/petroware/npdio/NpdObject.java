@@ -46,7 +46,7 @@ public abstract class NpdObject
    * @param factMapUrl       URL to NPD fact map for this instance. Null if N/A.
    * @param lastChangedDate  Date this instance were last changed at NPD. Null if unknown.
    * @param syncDate         Date synced with NPD back-end database. Null if unknown.
-   */
+7   */
   protected NpdObject(String type,
                       String npdId,
                       String name,
@@ -125,8 +125,6 @@ public abstract class NpdObject
 
   /**
    * Return date (some aspect of) this instance was last changed.
-   * <p>
-   * Refers to the NPD term <em>Date all updated</em>.
    *
    * @return Sync date of this instance. Null if unknown.
    */

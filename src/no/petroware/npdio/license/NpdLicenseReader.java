@@ -108,6 +108,7 @@ public final class NpdLicenseReader extends NpdReader<NpdLicense>
                           phase,
                           factPageUrl,
                           factMapUrl,
+                          mainLevelUpdatedDate,
                           lastChangedDate,
                           syncDate);
   }

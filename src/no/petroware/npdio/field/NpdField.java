@@ -53,26 +53,7 @@ public final class NpdField extends NpdObject
   private Production production_ = null;
 
   /**
-   * Create a NPD field instance.
-   *
-   * @param npdId
-   * @param name
-   * @param operatorName
-   * @param activityStatus
-   * @param discoveryWellboreName
-   * @param discoveryWellboreCompletionDate
-   * @param mainArea
-   * @param ownerKind
-   * @param ownerName
-   * @param mainSupplyBase
-   * @param npdidOwner
-   * @param npdidDiscoveryWellbore
-   * @param npdidOperator
-   * @param factPageUrl
-   * @param factMapUrl
-   * @param mainLevelUpdatedDate
-   * @param lastChangedDate
-   * @param syncDate
+   * Create an NPD field instance.
    */
   NpdField(String npdId,
            String name,

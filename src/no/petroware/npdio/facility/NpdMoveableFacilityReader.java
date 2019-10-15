@@ -71,6 +71,7 @@ public final class NpdMoveableFacilityReader extends NpdReader<NpdMoveableFacili
 
     String npdId = tokens[NPDID_INDEX];
     String name = tokens[NAME_INDEX];
+    String responsibleCompanyName = tokens[RESPONSIBLE_COMPANY_NAME_INDEX];
     String responsibleCompanyId = tokens[RESPONSIBLE_COMPANY_ID_INDEX];
     String kind = tokens[KIND_INDEX];
     String functions = tokens[FUNCTIONS_INDEX];
@@ -82,12 +83,13 @@ public final class NpdMoveableFacilityReader extends NpdReader<NpdMoveableFacili
 
     return new NpdMoveableFacility(npdId,
                                    name,
-                                   responsibleCompanyId,
+                                   responsibleCompanyName,
                                    kind,
                                    functions,
                                    aocStatus,
                                    nation,
                                    factPageUrl,
+                                   responsibleCompanyId,
                                    lastChangedDate,
                                    syncDate);
   }

@@ -13,29 +13,32 @@ import no.petroware.npdio.NpdObject;
  */
 public final class NpdCompany extends NpdObject
 {
+  /** Norwegian organization number. Null if N/A. */
   private final String organizationNumber_;
+
+  /** Company short name. Null if N/A. */
   private final String shortName_;
+
+  /** Nation ISO code. Null if unknown. */
   private final String nationCode_;
+
+  /** Survey prefix. Null if N/A or unknown. */
   private final String surveyPrefix_;
+
+  /** Flag indicating if company is an operator. */
   private final boolean isCurrentLicenseOperator_;
+
+  /** Flag indicating if company was an operator. */
   private final boolean isFormerLicenseOperator_;
+
+  /** Flag indicating if company is a licensee. */
   private final boolean isCurrentLicenseLicensee_;
+
+  /** Flag indicating if company was a licensee. */
   private final boolean isFormerLicenseLicensee_;
 
   /**
-   * Create a NPD company instance.
-   *
-   * @param npdId                     NPD ID. Non-null.
-   * @param name                      Company name. Non-null.
-   * @param organizationNumber        Organization number. Null if N/A.
-   * @param shortName                 Company short name. Null if N/A.
-   * @param nationCode                Nation code. Null if not known.
-   * @param surveyPrefix              Survey prefix. Null if N/A.
-   * @param isCurrentLicenseOperator  Is company currently license operator?
-   * @param isFormerLicenseOperator   Is company former license operator?
-   * @param isCurrentLicenseLicensee  Is company currently license licensee?
-   * @param isFormerLicenseLicensee   Is company former license licensee?
-   * @param syncDate
+   * Create an NPD company instance.
    */
   NpdCompany(String npdId,
              String name,
@@ -62,7 +65,12 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
-   * Return the official Norwegian organization number.
+   * Return the official Norwegian organization number of this company.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Official Norwegian organisation number.
+   * <p>
+   * varchar(100), corresponds to NPD property <em>cmpOrgNumberBrReg</em>.
    *
    * @return Official Norwegian organization number. Null if N/A.
    */
@@ -72,7 +80,12 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
-   * Return company short name.
+   * Return short name of this company.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Missing.
+   * <p>
+   * Corresponds to NPD property <em>cmpShortName</em>.
    *
    * @return  Company short name. Null if N/A.
    */
@@ -82,10 +95,15 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
-   * Return two letter nation code (ISO) for the nation the company is
+   * Return two letter nation code (ISO) of this company.
    * registered in.
+   * <p>
+   * <b>NPD description:</b><br>
+   * 2 letter nation code (ISO) for the nation the company is registered in.
+   * <p>
+   * varchar(2), corresponds to NPD property <em>cmpNationCode</em>.
    *
-   * @return Nation code. Null if N/A or unknown.
+   * @return  Nation code of this company. Null if N/A or unknown.
    */
   public String getNationCode()
   {
@@ -93,7 +111,12 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
-   * Return prefix for survey names. In "ST14001", ST prefix for Statoil.
+   * Return prefix for survey names of this company.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Prefix for survey names. In "ST14001" is ST prefx for Statoil.
+   * <p>
+   * varchar(4), corresponds to NPD property <em>cmpSurveyPrefix</em>.
    *
    * @return  Prefix for survey names. Null if N/A.
    */
@@ -103,11 +126,15 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
-   * Indicator which tells if the company is currently a production
-   * license operator.
+   * Check if this company is currently a license operator.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Indicator which tells if the company is currently a production licence
+   * operator.
+   * <p>
+   * varchar(1), corresponds to NPD property <em>cmpLicenceOperCurrent</em>.
    *
-   * @return True if the company is currently a production
-   *         license operator, false otherwise.
+   * @return True if the company is currently a license operator, false otherwise.
    */
   public boolean isCurrentLicenseOperator()
   {
@@ -115,11 +142,15 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
+   * Check if this company was a former license operator.
+   * <p>
+   * <b>NPD description:</b><br>
    * Indicator which tells if the company has previously been a
    * production license operator.
+   * <p>
+   * varchar(1), corresponds to NPD property <em>cmpLicenceOperFormer</em>.
    *
-   * @return True if the company has previously been a
-   *         production license operator, false otherwise.
+   * @return True if the company was a former license operator, false otherwise.
    */
   public boolean isFormerLicenseOperator()
   {
@@ -127,11 +158,15 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
+   * Check if this company is currently a licensee.
+   * <p>
+   * <b>NPD description:</b><br>
    * Indicator which tells if the company is currently a licensee in
    * production licenses.
+   * <p>
+   * varchar(1), corresponds to NPD property <em>cmpLicenceLicenseeCurrent</em>.
    *
-   * @return True if the company is currently a licensee in
-   *         production licenses, fale otherwise.
+   * @return True if this company is currently a licensee, false otherwise.
    */
   public boolean isCurrentLicenseLicensee()
   {
@@ -139,11 +174,15 @@ public final class NpdCompany extends NpdObject
   }
 
   /**
+   * Check if this company was a former licensee.
+   * <p>
+   * <b>NPD description:</b><br>
    * Indicator which tells if the company has been a licensee in production
    * licenses.
+   * <p>
+   * varchar(1), corresponds to NPD property <em>cmpLicenceLicenseeFormer</em>.
    *
-   * @return True if the company has been a licensee in production
-   *         licenses, false otherwise.
+   * @return True if this company was a former licensee, false otherwise.
    */
   public boolean isFormerLicenseLicensee()
   {

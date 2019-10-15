@@ -13,163 +13,68 @@ import no.petroware.npdio.NpdObject;
  */
 public final class NpdSurvey extends NpdObject
 {
-  /**
-   * Status for the survey. Example of legal values:
-   * "Høring", "Planlagt", "Pågående", "Pause", "Ferdig".
-   * <p>
-   * varchar(100)
-   */
+  /** Survey status. Null if N/A or unknown. */;
   private final String status_;
 
-  /**
-   * Geographical area in the Norwegian Continental Shelf.
-   * Legal values are "Nordsjøen", "Norskehavet", "Barentshavets - Sør" ,
-   * Barentshavet - Nord".
-   * <p>
-   * varchar(255)
-   */
+  /** Geographical area. Null if N/A or unknown. */;
   private final String area_;
 
-  /**
-   * Midpoint of maximum and minimum North / South position and for the East/West posistion.
-   * The midpoint is given in degrees and decimal minutes and using Norwegian notation
-   * for East (Ø), i.e 73'' 29.8' N, 33'' 15.7' Ø.
-   * <p>
-   * varchar(100)
-   */
+  /** Survey midpoint. Null if N/A or unknown. */;
   private final String midPoint_;
 
-  /**
-   * Indicates what method that is used in the survey.
-   * If seismic source is used the category is set to "Seismisk undersøkelse",
-   * if electromagnetic source "Elektromagnetisk undersøkelse" is set.
-   * Otherwise "Andre undersøkelser" is set. See also "Main type" and "Sub type".
-   * <p>
-   * varchar(100)
-   */
+  /** Survey category. Null if N/A or unknown. */;
   private final String category_;
 
-  /**
-   * Main type of the survey. Legal values are "Ordinær seismisk undersøkelse",
-   * "Havbunnseismisk undersøkelse", "Elektromagnetisk undersøkelse",
-   * "Borestedsundersøkelse / site survey", "Grunnundersøkelse".
-   * See also description of" Category".
-   * <p>
-   * varchar(100)
-   */
+  /** Survey type. Null if N/A or unknown. */;
   private final String mainType_;
 
-  /**
-   * Sub type of the survey. Legal values are: "2D", "3D", "4D" and "Ikke seismikk".
-   * All values are relevant for the different main types, except of "Ikke seismikk"
-   * that is only relevant for ,"Borestedsundersøkelse / site survey", "Grunnundersøkelse".
-   * <p>
-   * varchar(100)
-   */
+  /** Survey sub type. Null if N/A or unknown. */;
   private final String subType_;
 
-  /**
-   * Company responsible for the survey.
-   * <p>
-   * varchar(100)
-   */
+  /** Company responsible for the survey. Null if N/A or unknown. */;
   private final String company_;
 
-  /**
-   * Vessels used in the survey (main vessel = hovedfartøy and escort vessels = følgefartøy).
-   * The boats shown here are entered in the message sent NPD by the company doing the survey.
-   * <p>
-   * varchar(1000)
-   */
+  /** Vessel(s) used in the survey. Null if N/A or unknown. */;
   private final String vessel_;
 
-  /**
-   * Date when the company has reported plans to start the acquisition.
-   * <p>
-   * datetime
-   */
+  /** Planned start date. Null if N/A or unknown. */;
   private final Date plannedStartDate_;
 
-  /**
-   * Date when the company has reported that the acquisition shall be finished.
-   * <p>
-   * datetime
-   */
+  /** Planned completion date. Null if N/A or unknown. */;
   private final Date plannedCompleteDate_;
 
-  /**
-   * Date the survey started. Started means when the vessel arrives the acquisition area.
-   * <p>
-   * datetime
-   */
+  /** Date the survey started. Null if N/A or unknown. */;
   private final Date startDate_;
 
-  /**
-   * Date the acquisition was completed. Completed means departure from the acquisition area.
-   * <p>
-   * datetime
-   */
+  /** Date the acquisition was completed. Null if N/A or unknown. */;
   private final Date completeDate_;
 
-  /**
-   * Total planned acquisition length. km.
-   * <p>
-   * int
-   */
+  /** Total planned acquisition length. Null if N/A or unknown. */;
   private final Double plannedTotalLengthBoat_;
 
-  /**
-   * Total planned acquisition length. km.
-   * <p>
-   * int
-   */
+  /** Total planned acquisition length. Null if N/A or unknown. */;
   private final Double plannedTotalLengthCdp_;
 
-  /**
-   * Planned net area - calculated by NPD map tool if 3D or 4D. km2.
-   * <p>
-   * decimal
-   */
+  /** Planned net area. Null if N/A or unknown. */;
   private final Double netAreaPlanned_;
 
-  /**
-   * Actual net area as reported by the company - 3D/4D [km2]
-   * <p>
-   * decimal
-   */
+  /** Actual net area. Null if N/A or unknown. */;
   private final Double netAreaActual_;
 
-  /**
-   * Indicator which tells if the survey is classified as market available
-   * (see Petroleum regulation § 85). Legal values, "Yes" , "No".
-   * <p>
-   * varchar(20)
-   */
+  /** Is survey market available. Null if N/A or unknown. */;
   private final Boolean isAvailable_;
 
-  /**
-   * Has sampling been performed? (Ja/Nei).
-   * <p>
-   * varchar(20)
-   */
+  /** Has sampling been performed? Null if N/A or unknown. */;
   private final Boolean isSamplingDone_;
 
-  /**
-   * Has shallow drilling been performed? (Ja/Nei).
-   * <p>
-   * varchar(20)
-   */
+  /** Has shallow drilling been performed? Null if N/A or unknown. */;
   private final Boolean isShallowDrillingDone_;
 
-  /**
-   * Has geotechnical measurement been performed? (Ja/Nei).
-   * <p>
-   * varchar(20)
-   */
+  /** Has geotechnical measurement been performed? Null if N/A or unknown. */;
   private final Boolean isGeotechnicalMeasurementDone_;
 
   /**
-   * Create a NPD survey.
+   * Create an NPD survey instance.
    */
   NpdSurvey(String npdId,
             String name,
@@ -224,6 +129,7 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return status of this survey.
    * <p>
+   * <b>NPD description:</b><br>
    * Example of legal values:
    * <ul>
    *   <li>Høring</li>
@@ -232,8 +138,10 @@ public final class NpdSurvey extends NpdObject
    *   <li>Pause</li>
    *   <li>Ferdig</li>
    * </ul>
+   * <p>
+   * varchar(100), corresponds to NPD property <em>seaStatus</em>.
    *
-   * @return  Status for this survey.
+   * @return  Status of this survey. Null if N/A or unknown.
    */
   public String getStatus()
   {
@@ -241,17 +149,21 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Return geographical area in the Norwegian Continental Shelf.
+   * Return geographical area of this survey.
    * <p>
-   * Legal values are
+   * <b>NPD description:</b><br>
+   * Geographical area in the Norwegian Continental Shelf.
+   * Legal values are:
    * <ul>
    *   <li>Nordsjøen</li>
    *   <li>Norskehavet</li>
    *   <li>Barentshavets - Sør</li>
    *   <li>Barentshavet - Nord</li>
    * </ul>
+   * <p>
+   * varchar(255), corresponds to NPD property <em>seaGeographicalArea</em>.
    *
-   * @return  Geographical area of this survey.
+   * @return  Geographical area of this survey. Null if N/A or unknown.
    */
   public String getArea()
   {
@@ -259,11 +171,15 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Return midpoint of maximum and minimum North / South position and for the
-   * East/West position.
+   * Return midpoint of this survey.
    * <p>
-   * The midpoint is given as a string in degrees and decimal minutes and using
-   * Norwegian notation for East (Ø), i.e 73'' 29.8' N, 33'' 15.7' Ø.
+   * <b>NPD description:</b><br>
+   * Midpoint of maximum og minimum North / South position and for the
+   * East/West posistion. The midpoint is given in degrees and decimal
+   * minutes and using Norwegian notation for East (Ø),
+   * i.e 73'' 29.8' N, 33'' 15.7' Ø
+   * <p>
+   * varchar(100), corresponds to NPD property <em>seaMidPoint</em>.
    *
    * @return  Midpoint of this survey. Null if unknown.
    */
@@ -275,10 +191,14 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return category of this survey.
    * <p>
+   * <b>NPD description:</b><br>
    * Indicates what method that is used in the survey.
    * If seismic source is used, the category is set to "Seismisk undersøkelse",
    * if electromagnetic source "Elektromagnetisk undersøkelse" is set.
-   * Otherwise "Andre undersøkelser" is set. See also "Main type" and "Sub type".
+   * Otherwise "Andre undersøkelser" is set.
+   * See also "Main type" and "Sub type".
+   * <p>
+   * varchar(100), corresponds to NPD property <em>seaCategory</em>.
    *
    * @return  Category of this survey.
    */
@@ -290,16 +210,18 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return main type of the survey.
    * <p>
-   * Legal values are
+   * <b>NPD description:</b><br>
+   * Main type of the survey. Legal values are:
    * <ul>
    *   <li>Ordinær seismisk undersøkelse</li>
    *   <li>Havbunnseismisk undersøkelse</li>
    *   <li>Elektromagnetisk undersøkelse</li>
-   *   <li>Borestedsundersøkelse / site survey</li>
-   *   <li>Grunnundersøkelse</li>
+   *   <li>Borestedsundersøkelse / Site survey</li>
+   *   <li>Grunnundersøkelse / Soil survey</li>
    * </ul>
-   *
    * See also description of <em>category</em>.
+   * <p>
+   * varchar(100), corresponds to NPD property <em>seaSurveyTypeMain</em>.
    *
    * @return  Main type of this survey.
    */
@@ -311,7 +233,8 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return sub type of this survey.
    * <p>
-   * Legal values are
+   * <b>NPD description:</b><br>
+   * Sub type of the survey. Legal values are:
    * <ul>
    *   <li>2D</li>
    *   <li>3D</li>
@@ -319,8 +242,11 @@ public final class NpdSurvey extends NpdObject
    *   <li>Ikke seismikk</li>
    * </ul>
    *
-   * All values are relevant for the different main types, except of "Ikke seismikk"
-   * that is only relevant for ,"Borestedsundersøkelse / site survey", "Grunnundersøkelse".
+   * All values are relevant for the different main types, except of
+   * "Ikke seismikk" that is only relevant for ,
+   * "Borestedsundersøkelse / Site survey", "Grunnundersøkelse / Soil survey".
+   * <p>
+   * varchar(100), corresponds to NPD property <em>seaSurveyTypePart</em>.
    *
    * @return  Sub type of this survey. Null if N/A.
    */
@@ -331,6 +257,11 @@ public final class NpdSurvey extends NpdObject
 
   /**
    * Return company responsible for the survey.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Company responsible for the survey.
+   * <p>
+   * varchar(100), corresponds to NPD property <em>seaCompanyReported</em>.
    *
    * @return  Company responsible for the survey. Null if unknown or N/A.
    */
@@ -340,12 +271,16 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
+   *
    * Return vessel(s) used in the survey.
    * <p>
-   * <em>main vessel</em> = "hovedfartøy" and <em>escort vessels</em> = "følgefartøy".
-   *
+   * <b>NPD description:</b><br>
+   * Vessels used in the survey (<em>main vessel</em> = "hovedfartøy" and
+   * <em>escort vessels</em> = "følgefartøy").
    * The boats shown here are entered in  the message sent NPD by the company
    * doing the survey.
+   * <p>
+   * varchar(1000), corresponds to NPD property <em>seaVesselAll</em>.
    *
    * @return  The vessel(s) used in this survey. Null if unknown or N/A.
    */
@@ -357,7 +292,10 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return planned start date for this survey.
    * <p>
-   * This is the date when the company has reported plans to start the acquisition.
+   * <b>NPD description:</b><br>
+   * Date when the company has reported plans to start the acquisition.
+   * <p>
+   * datetime, corresponds to NPD property <em>seaPlanFromDate</em>.
    *
    * @return  Planned start date. Null if unknown or not specified.
    */
@@ -369,7 +307,10 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return planned completion date for this survey.
    * <p>
+   * <b>NPD description:</b><br>
    * Date when the company has reported that the acquisition shall be finished.
+   * <p>
+   * datetime, corresponds to NPD property <em>seaPlanToDate</em>.
    *
    * @return  Planned completion date. Null if unknown or not specified.
    */
@@ -381,8 +322,11 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return start date for this survey.
    * <p>
-   * This is the date the survey started.
-   * Started means when the vessel arrives the acquisition area.
+   * <b>NPD description:</b><br>
+   * Date the survey started. Started means when the vessel arrives
+   * the acquisition area.
+   * <p>
+   * datetime, corresponds to NPD property <em>seaDateStarting</em>.
    *
    * @return  Survey start date. Null if unknown or if survey is not yet started.
    */
@@ -394,8 +338,11 @@ public final class NpdSurvey extends NpdObject
   /**
    * Return completion date for this survey.
    * <p>
-   * This is the date the acquisition was completed.
-   * Completed means departure from the acquisition area.
+   * <b>NPD description:</b><br>
+   * Date the acquistion was completed. Completed means departure
+   * from the acquisition area.
+   * <p>
+   * datetime, corresponds to NPD property <em>seaDateFinalized</em>.
    *
    * @return  Survey completion date. Null if unknown or if survey is not completed.
    */
@@ -406,8 +353,14 @@ public final class NpdSurvey extends NpdObject
 
   /**
    * Return total planned acquisition length for the boat.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Total planned acquistion length.
+   * <p>
+   * int, corresponds to NPD property <em>seaPlanBoatKm</em>.
    *
-   * @return  Total planned acquisition length in km. Null if unknown or unspecified.
+   * @return  Total planned acquisition length in km.
+   *          Null if unknown or unspecified.
    */
   public Double getPlannedTotalLengthBoat()
   {
@@ -416,6 +369,11 @@ public final class NpdSurvey extends NpdObject
 
   /**
    * Return total planned acquisition length along CDP.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Total planned acquistion length.
+   * <p>
+   * int, corresponds to NPD property <em>seaPlanCdpKm</em>.
    *
    * @return  Total planned acquisition length along CDP in km. Null if unknown or unspecified.
    */
@@ -425,10 +383,14 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Return planned net area for the survey.
-   * Calculated by NPD map tool if 3D or 4D.
+   * Return planned net area of this survey.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Planned net area - calculated by NPD map tool if 3D or 4D.
+   * <p>
+   * decimal, corresponds to NPD property <em>sea3DKm2</em>.
    *
-   * @return  Survey planned area in km2. Null if unknown or unspecified.
+   * @return  Planned net area of this survey in km2. Null if unknown or unspecified.
    */
   public Double getNetAreaPlanned()
   {
@@ -436,10 +398,14 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Return actual area for the survey.
-   * Actual net area as reported by the company - 3D/4D.
+   * Return actual area of this survey.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Actual net area as reported by the company - 3D/4D [km2].
+   * <p>
+   * int, corresponds to NPD property <em>seaSurveyAcquired</em>.
    *
-   * @return  Survey actual area in km2. Null if unknown or unspecified.
+   * @return  Actual area of this survey in km2. Null if unknown or unspecified.
    */
   public Double getNetAreaActual()
   {
@@ -447,7 +413,13 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Check if the survey is classified as <em>market available</em>.
+   * Return if the survey is classified as <em>market available</em>.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Indicator which tells if the survey is classified as market
+   * available (see Petroleum regulation § 85).
+   * <p>
+   * varchar(20), corresponds to NPD property <em>seaMarketAvailable</em>.
    *
    * @return  True if the survey is market available, false otherwise.
    *          Null in unknown or N/A.
@@ -458,7 +430,12 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Check if sampling been performed.
+   * Return if sampling has been performed for this survey.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Has sampling been performed? (Ja/Nei).
+   * <p>
+   * varchar(20), corresponds to NPD property <em>seaSampling</em>.
    *
    * @return  True if sampling has been performed, false otherwise.
    *          Null if unknown or N/A.
@@ -469,7 +446,12 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Check if shallow drilling been performed.
+   * Return if shallow drilling has been performed for this survey.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Has shallow drilling been performed? (Ja/Nei).
+   * <p>
+   * varchar(20), corresponds to NPD property <em>seaShallowDrilling</em>.
    *
    * @return  True if shallow drilling has been performed, false otherwise.
    *          Null if unknown or N/A.
@@ -480,7 +462,12 @@ public final class NpdSurvey extends NpdObject
   }
 
   /**
-   * Check if geotechnical measurement been performed.
+   * Check if geotechnical measurement has been performed for this survey.
+   * <p>
+   * <b>NPD description:</b><br>
+   * Has geotechnical measurement been performed? (Ja/Nei).
+   * <p>
+   * varchar(20), corresponds to NPD property <em>seaGeotechnical</em>.
    *
    * @return  True if geotechnical measurement been performed, false otherwise.
    *          Null if unknown or N/A.

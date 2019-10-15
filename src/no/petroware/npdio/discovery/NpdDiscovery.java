@@ -38,27 +38,7 @@ public final class NpdDiscovery extends NpdObject
   private final String npdidWellbore_;
 
   /**
-   * Create a NPD discovery instance.
-   *
-   * @perem npdId
-   * @perem name
-   * @perem activityStatus
-   * @perem hydrocarbonType
-   * @perem wellboreName
-   * @perem mainArea
-   * @perem fieldName
-   * @perem includedInFieldFromDate
-   * @perem discoveryYear
-   * @perem resourcesDiscoveryName
-   * @perem ownerKindIndex
-   * @perem ownerNameIndex
-   * @perem npdidField
-   * @perem npdidWellbore
-   * @perem factPageUrl
-   * @perem factMapUrl
-   * @perem mainLevelUpdatedIndex
-   * @perem lastChangedDate
-   * @perem syncDate)
+   * Create an NPD discovery instance.
    */
   NpdDiscovery(String npdId,
                String name,

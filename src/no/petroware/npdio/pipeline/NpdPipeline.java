@@ -56,7 +56,7 @@ public final class NpdPipeline extends NpdObject
   private final String npdidToFacility_;
 
   /**
-   * Create a NPD pipeline.
+   * Create an NPD pipeline instance.
    */
   NpdPipeline(String npdId,
               String name,
@@ -100,6 +100,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the map label of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Name used in the map.
    * <p>
    * varchar(100), corresponds to NPD property <em>pplMapLabel</em>.
@@ -114,6 +115,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the from facility of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of facility where the pipeline starts.
    * <p>
    * varchar(50), corresponds to NPD property <em>fclNameFrom</em>.
@@ -128,6 +130,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the to facility of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of facility where the pipeline ends.
    * <p>
    * varchar(50), corresponds to NPD property <em></em>.
@@ -142,6 +145,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the pipeline or field this pipeline belongs to.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of the TUF or field the pipeline belongs to.
    * <p>
    * varchar(50), corresponds to NPD property <em>pplBelongsToName</em>.
@@ -156,6 +160,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the operator of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Operator company for this pipeline.
    * <p>
    * varchar(100), corresponds to NPD property <em>cmpLongName</em>.
@@ -170,6 +175,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the current phase of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Current phase for the pipeline.
    * Examples of legal values:
    * <ul>
@@ -193,6 +199,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the from date of the current phase of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Date from, current phase.
    * <p>
    * datetime, corresponds to NPD property <em>pplCurrentPhaseFromDate</em>.
@@ -207,6 +214,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the medium of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Medium transported in the pipeline.
    * <p>
    * varchar(40), corresponds to NPD property <em>pplMedium</em>.
@@ -221,6 +229,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the main grouping of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Name of main grouping of pipeline.
    * Example of legal values:
    * <ul>
@@ -240,6 +249,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the diameter dimension of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Pipeline dimension in inches.
    * <p>
    * real, corresponds to NPD property <em>pplDimension</em>.
@@ -254,6 +264,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the maximum water depth of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * Maximum water depth [m].
    * <p>
    * real, corresponds to NPD property <em>pplWaterDepth</em>.
@@ -268,6 +279,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the NPDID of the operator of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the company operating the pipeline.
    * <p>
    * int, corresponds to NPD property <em>cmpNpdidCompany</em>.
@@ -282,6 +294,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the NPDID of the from facility of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the facility where the pipeline starts.
    * <p>
    * int, corresponds to NPD property <em>fclNpdidFacilityFrom</em>.
@@ -296,6 +309,7 @@ public final class NpdPipeline extends NpdObject
   /**
    * Return the NPDID of the to facility of this pipeline.
    * <p>
+   * <b>NPD description:</b><br>
    * NPD's unique id for the facility where the pipeline ends.
    * <p>
    * int, corresponds to NPD property <em>fclNpdidFacilityTo</em>.
