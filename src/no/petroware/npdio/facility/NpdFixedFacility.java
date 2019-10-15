@@ -64,7 +64,7 @@ public final class NpdFixedFacility extends NpdFacility
                    Integer ewMinutes,
                    Double ewSeconds,
                    String ewCode,
-                   double waterDepth,
+                   Double waterDepth,
                    Integer designedLifetime,
                    String factPageUrl,
                    String factMapUrl,
@@ -193,7 +193,7 @@ public final class NpdFixedFacility extends NpdFacility
    *
    * @return  Coordinate, north-south milliseconds.
    */
-  public double getNsSeconds()
+  public Double getNsSeconds()
   {
     return nsSeconds_;
   }
