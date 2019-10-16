@@ -84,11 +84,9 @@ Below are a few examples on how to access some of the main data types from the N
    :
 
    //
-   // Read development NPD wellbores
+   // Read all NPD development wellbores
    //
-   String url = "https://npdfactpages.npd.no/..."; // Use NpdDevelopmentWellbore link from table above
-   NpdDevelopmentWellboreReader wellboreReader = new NpdDevelopmentWellboreReader(url);
-   List<NpdWellbore> npdWellbores = wellboreReader.read();
+   List<NpdWellbore> npdWellbores = NpdDevelopmentWellboreReader.readAll();
 
    // Loop over the wellbores and write to console
    for (NpdWellbore npdWellbore : npdWellbores)
@@ -100,25 +98,18 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read NPD fields
    //
-   url = "https://npdfactpages.npd.no/..."; // Use NpdField link from table above
-   NpdFieldReader fieldReader = new NpdFieldReader(url);
-   List<NpdField> fields = fieldReader.read();
+   List<NpdField> fields = NpdFieldReader.readAll();
 
    // Loop over the fields and read production for each
    for (NpdField field : fields) {
 
-     // Read field production
-     url = "https://npdfactpages.npd.no/..."; // Use NpdProduction link from table above
-     ProductionReader productionReader = new ProductionReader(url);
-     productionReader.read(field);
+     // Read production data
+     ProductionReader.readAll(field);
 
-     // Report the production for this field
-     Production production = field.getProduction();
-
-     for (Production.Entry productionEntry : production.getEntries()) {
+     // Write oil production to console
+     for (Production.Entry productionEntry : field.getProduction().getEntries()) {
        int year = productionEntry.getYear();
        int month = productionEntry.getMonth();
-
        double oilProduction = productionEntry.getOil();
 
        System.out.println("Oil production: " + year + "/" + month + ": " + oilProduction);
