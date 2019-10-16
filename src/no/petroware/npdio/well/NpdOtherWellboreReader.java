@@ -1,12 +1,14 @@
 package no.petroware.npdio.well;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import no.petroware.npdio.NpdReader;
 
 /**
- * Reader for NPD other wellbores.
+ * Reader for NPD <em>other</em> wellbores.
  * <p>
  * This class is thread-safe.
  *
@@ -14,6 +16,9 @@ import no.petroware.npdio.NpdReader;
  */
 public final class NpdOtherWellboreReader extends NpdReader<NpdOtherWellbore>
 {
+  /** URL to the NPD file containing the data. */
+  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en";
+
   /**
    * The development wellbore properties and their order is as follows:
    *
@@ -114,7 +119,7 @@ public final class NpdOtherWellboreReader extends NpdReader<NpdOtherWellbore>
   private static final int DATESYNC_NPD_INDEX = 46;
 
   /**
-   * Create a reader for NPD other wellbores.
+   * Create a reader for NPD <em>other</em> wellbores.
    *
    * @param url  Location of file to read. Non-null.
    * @throws IllegalArgumentException  If url is null.
@@ -122,6 +127,26 @@ public final class NpdOtherWellboreReader extends NpdReader<NpdOtherWellbore>
   public NpdOtherWellboreReader(String url)
   {
     super(url);
+  }
+
+  /**
+   * Read all NPD <em>other</em> wellbores.
+   * <p>
+   * This is a convenient alternative to the more flexible and generic
+   * approach where the URL location of the data is provided by the client:
+   * <pre>
+   *   NpdOtherWellboreReader reader = new NpdOtherWellboreReader(url);
+   *   List&lt;NpdOtherWellbore&gt; wellbores = reader.read();
+   * </pre>
+   *
+   * @return  All NPD other wellbores. Never null.
+   * @throws IOException  If the read operation fail for some reason.
+   */
+  public static List<NpdOtherWellbore> readAll()
+    throws IOException
+  {
+    NpdOtherWellboreReader reader = new NpdOtherWellboreReader(URL);
+    return reader.read();
   }
 
   /**

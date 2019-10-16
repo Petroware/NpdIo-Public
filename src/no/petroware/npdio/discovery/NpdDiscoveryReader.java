@@ -1,7 +1,9 @@
 package no.petroware.npdio.discovery;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import no.petroware.npdio.NpdReader;
 
@@ -14,6 +16,9 @@ import no.petroware.npdio.NpdReader;
  */
 public final class NpdDiscoveryReader extends NpdReader<NpdDiscovery>
 {
+  /** URL to the NPD file containing the data. */
+  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/discovery&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en";
+
   /**
    * The pipline properties and their order is as follows:
    *
@@ -68,6 +73,26 @@ public final class NpdDiscoveryReader extends NpdReader<NpdDiscovery>
   public NpdDiscoveryReader(String url)
   {
     super(url);
+  }
+
+  /**
+   * Read all NPD discoveries.
+   * <p>
+   * This is a convenient alternative to the more flexible and generic
+   * approach where the URL location of the data is provided by the client:
+   * <pre>
+   *   NpdDiscoveryReader reader = new NpdDiscoveryReader(url);
+   *   List&lt;NpdDiscovery&gt; discoveries = reader.read();
+   * </pre>
+   *
+   * @return  All NPD discoveries. Never null.
+   * @throws IOException  If the read operation fail for some reason.
+   */
+  public static List<NpdDiscovery> readAll()
+    throws IOException
+  {
+    NpdDiscoveryReader reader = new NpdDiscoveryReader(URL);
+    return reader.read();
   }
 
   /**

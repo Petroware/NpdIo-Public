@@ -1,7 +1,9 @@
 package no.petroware.npdio.facility;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import no.petroware.npdio.NpdObject;
 import no.petroware.npdio.NpdReader;
@@ -15,6 +17,9 @@ import no.petroware.npdio.NpdReader;
  */
 public final class NpdMoveableFacilityReader extends NpdReader<NpdMoveableFacility>
 {
+  /** URL to the NPD file containing the data. */
+  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
+
   /**
    * The moveable facility properties and their order is as follows:
    *
@@ -51,6 +56,26 @@ public final class NpdMoveableFacilityReader extends NpdReader<NpdMoveableFacili
   public NpdMoveableFacilityReader(String url)
   {
     super(url);
+  }
+
+  /**
+   * Read all NPD moveable facilities.
+   * <p>
+   * This is a convenient alternative to the more flexible and generic
+   * approach where the URL location of the data is provided by the client:
+   * <pre>
+   *   NpdMoveableFacilityReader reader = new NpdMoveableFacilityReader(url);
+   *   List&lt;NpdMoveableFacility&gt; moveableFacilities = reader.read();
+   * </pre>
+   *
+   * @return  All NPD moveable facilities. Never null.
+   * @throws IOException  If the read operation fail for some reason.
+   */
+  public static List<NpdMoveableFacility> readAll()
+    throws IOException
+  {
+    NpdMoveableFacilityReader reader = new NpdMoveableFacilityReader(URL);
+    return reader.read();
   }
 
   /**

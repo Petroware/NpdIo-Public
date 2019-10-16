@@ -1,7 +1,9 @@
 package no.petroware.npdio.field;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import no.petroware.npdio.NpdReader;
 
@@ -14,6 +16,9 @@ import no.petroware.npdio.NpdReader;
  */
 public final class NpdFieldReader extends NpdReader<NpdField>
 {
+  /** URL to the NPD file containing the data. */
+  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
+
   /**
    * The moveable facility properties and their order is as follows:
    *
@@ -67,9 +72,29 @@ public final class NpdFieldReader extends NpdReader<NpdField>
   }
 
   /**
-   * Create a new NPD company instance from the given tokens.
+   * Read all NPD fields.
+   * <p>
+   * This is a convenient alternative to the more flexible and generic
+   * approach where the URL location of the data is provided by the client:
+   * <pre>
+   *   NpdFieldReader reader = new NpdFieldReader(url);
+   *   List&lt;NpdField&gt; fields = reader.read();
+   * </pre>
    *
-   * @param tokens  Tokens that makes up one row in the company database table. Non-null.
+   * @return  All NPD field. Never null.
+   * @throws IOException  If the read operation fail for some reason.
+   */
+  public static List<NpdField> readAll()
+    throws IOException
+  {
+    NpdFieldReader reader = new NpdFieldReader(URL);
+    return reader.read();
+  }
+
+  /**
+   * Create a new NPD field instance from the given tokens.
+   *
+   * @param tokens  Tokens that makes up one row in the field database table. Non-null.
    * @return        The created field instance. Never null.
    * @throws ParseException  If some of the tokens doesn't meet the requirements for its
    *                property.

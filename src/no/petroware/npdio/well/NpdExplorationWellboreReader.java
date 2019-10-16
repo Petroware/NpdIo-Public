@@ -1,7 +1,9 @@
 package no.petroware.npdio.well;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.Date;
+import java.util.List;
 
 import no.petroware.npdio.NpdReader;
 
@@ -14,6 +16,9 @@ import no.petroware.npdio.NpdReader;
  */
 public final class NpdExplorationWellboreReader extends NpdReader<NpdExplorationWellbore>
 {
+  /** URL to the NPD file containing the data. */
+  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en";
+
   /**
    * The exploration wellbore properties and their order is as follows:
    *
@@ -202,6 +207,26 @@ public final class NpdExplorationWellboreReader extends NpdReader<NpdExploration
   public NpdExplorationWellboreReader(String url)
   {
     super(url);
+  }
+
+  /**
+   * Read all NPD exploration wellbores.
+   * <p>
+   * This is a convenient alternative to the more flexible and generic
+   * approach where the URL location of the data is provided by the client:
+   * <pre>
+   *   NpdExplorationWellboreReader reader = new NpdExplorationWellboreReader(url);
+   *   List&lt;NpdExplorationWellbore&gt; wellbores = reader.read();
+   * </pre>
+   *
+   * @return  All NPD exploration wellbores. Never null.
+   * @throws IOException  If the read operation fail for some reason.
+   */
+  public static List<NpdExplorationWellbore> readAll()
+    throws IOException
+  {
+    NpdExplorationWellboreReader reader = new NpdExplorationWellboreReader(URL);
+    return reader.read();
   }
 
   /**

@@ -16,6 +16,9 @@ import no.petroware.npdio.NpdReader;
  */
 public final class ProductionReader extends NpdReader<Production.Entry>
 {
+  /** URL to the NPD file containing the data. */
+  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
+
   /**
    * The production properties and their order is as follows:
    *
@@ -120,4 +123,29 @@ public final class ProductionReader extends NpdReader<Production.Entry>
 
     field.setProduction(new Production(fieldProductionEntries));
   }
+
+  /**
+   * Read all production enntries for the specified field and populate
+   * its <em>production</em> member.
+   * <p>
+   * This is a convenient alternative to the more flexible and generic
+   * approach where the URL location of the data is provided by the client:
+   * <pre>
+   *   ProductionReader reader = new ProductionReader(url);
+   *   reader.read(field);
+   * </pre>
+   *
+   * @param field  Field to read production of. Non-null.
+   * @throws IllegalArgumentException  If field is null.
+   * @throws IOException               If the read operation fails for some reason.
+   */
+  public static void readAll(NpdField field)
+    throws IOException
+  {
+    ProductionReader reader = new ProductionReader(URL);
+    reader.read(field);
+  }
+
+
+
 }
