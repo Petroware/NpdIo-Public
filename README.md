@@ -86,11 +86,11 @@ Below are a few examples on how to access some of the main data types from the N
    //
    // Read all NPD development wellbores
    //
-   List<NpdWellbore> npdWellbores = NpdDevelopmentWellboreReader.readAll();
+   List<NpdWellbore> wellbores = NpdDevelopmentWellboreReader.readAll();
 
    // Loop over the wellbores and write to console
-   for (NpdWellbore npdWellbore : npdWellbores)
-     System.out.println(npdWellbore);
+   for (NpdWellbore wellbore : wellbores)
+     System.out.println(wellbore);
 
    :
 
@@ -102,6 +102,8 @@ Below are a few examples on how to access some of the main data types from the N
 
    // Loop over the fields and read production for each
    for (NpdField field : fields) {
+
+     System.out.println(field.getName());
 
      // Read production data
      ProductionReader.readAll(field);
