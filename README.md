@@ -53,28 +53,6 @@ The example is taken from [Log Studio](https://petroware.no/logstudio.html) from
 
 ## Programming examples
 
-NPD I/O access data through HTTP. As the URL for each data type may change over time,
-they are nor built in to the library,
-but should be provided by the client application.
-
-As of October 2019 the correct URLs for each NPD data type is as follows:
-
-| Data type                   | URL                    |
-|-----------------------------|------------------------|
-| ``NpdCompany``              | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdDevelopmentWellbore``  | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdDiscovery``            | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/discovery&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en`` |
-| ``NpdExplorationWellbore``  | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdField``                | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdFixedFacility``        | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdLicense``              | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-| ``NpdMoveableFacility``     | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
-| ``NpdOtherWellbore``        | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
-| ``NpdPipeline``             | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en`` |
-| ``NpdProduction``           | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-| ``NpdSurvey``               | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
-
-
 <p>
 Below are a few examples on how to access some of the main data types from the NPD database.
 
@@ -127,6 +105,26 @@ done asynchronous in threads. The NPD I/O library is all thread-safe.
 NPD I/O includes Java implementations for the NPD data types _wellbore_, _license_,
 _field_, _company_, _survey_, _facility_, _discovery_, _business arrangement area_,
 _pipeline_ and _stratigraphy_.
+
+NPD I/O access data through HTTP. As the URL for each data type may change over time,
+they can be provided explicitly by the client.
+
+As of October 2019 the correct URLs for each NPD data type is as follows:
+
+| Data type                   | URL                    |
+|-----------------------------|------------------------|
+| ``NpdCompany``              | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/company&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdDevelopmentWellbore``  | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdDiscovery``            | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/discovery&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en`` |
+| ``NpdExplorationWellbore``  | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_exploration_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdField``                | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdFixedFacility``        | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdLicense``              | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/licence&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdMoveableFacility``     | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_moveable&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en`` |
+| ``NpdOtherWellbore``        | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_other_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en`` |
+| ``NpdPipeline``             | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en`` |
+| ``NpdProduction``           | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field_production_monthly&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
+| ``NpdSurvey``               | ``https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/survey&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=213.225.65.178&CultureCode=en`` |
 
 
 ## About Petroware
