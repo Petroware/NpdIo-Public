@@ -16,7 +16,7 @@ The library is lightweight (< 0.1MB) and self-contained; It has no external
 dependencies. NPD I/O access data directly through HTTP - no login or
 password is required.
 
-NPD I/O web page: https://petroware.no/npdio.html
+NPD I/O web page: https://petroware.no/html/npdio.html
 
 
 ## Setup
@@ -35,7 +35,7 @@ NPD I/O has no external dependenies.
 
 ## Javadoc
 
-Public Javadoc: https://petroware.no/npdio/javadoc/index.html
+Public Javadoc: https://petroware.no/products/npdio/javadoc/index.html
 
 
 ## Example application
@@ -48,7 +48,7 @@ This video shows how NPD I/O can be used in an application:
    hspace="100" width="500" border="10"/>
 </a>
 
-The example is taken from [Log Studio](https://petroware.no/logstudio.html) from [Petroware](https://petroware.no).
+The example is taken from [Log Studio](https://petroware.no/html/logstudio.html) from [Petroware](https://petroware.no).
 
 
 ## Programming examples
