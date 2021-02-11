@@ -109,7 +109,7 @@ _pipeline_ and _stratigraphy_.
 NPD I/O access data through HTTP. As the URL for each data type may change over time,
 they can be provided explicitly by the client.
 
-As of October 2019 the correct URLs for each NPD data type is as follows:
+As of January 2021 the correct URLs for each NPD data type is as follows:
 
 | Data type                   | URL                    |
 |-----------------------------|------------------------|
