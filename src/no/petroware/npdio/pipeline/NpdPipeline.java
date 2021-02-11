@@ -79,7 +79,7 @@ public final class NpdPipeline extends NpdObject
               Date lastChangedDate,
               Date syncDate)
   {
-    super("pipeline", npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
+    super("tuf_pipeline", npdId, name, factPageUrl, factMapUrl, lastChangedDate, syncDate);
 
     mapLabel_ = mapLabel;
     fromFacility_ = fromFacility;

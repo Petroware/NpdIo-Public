@@ -91,7 +91,7 @@ public final class NpdOtherWellbore extends NpdWellbore
                    // Other wellbore specific
                    String seismicLocation)
   {
-    super("wellbore_other",
+    super("wellbore_development",
           npdId,
           name,
           wellName,
