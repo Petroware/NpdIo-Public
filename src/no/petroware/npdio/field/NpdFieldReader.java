@@ -17,7 +17,7 @@ import no.petroware.npdio.NpdReader;
 public final class NpdFieldReader extends NpdReader<NpdField>
 {
   /** URL to the NPD file containing the data. */
-  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
+  private static final String URL = "https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/field&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
 
   /**
    * The moveable facility properties and their order is as follows:

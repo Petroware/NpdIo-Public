@@ -18,7 +18,7 @@ import no.petroware.npdio.NpdReader;
 public final class NpdFixedFacilityReader extends NpdReader<NpdFixedFacility>
 {
   /** URL to the NPD file containing the data. */
-  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
+  private static final String URL = "https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/facility_fixed&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.121.112&CultureCode=en";
 
   /**
    * The fixed facility properties and their order is as follows:

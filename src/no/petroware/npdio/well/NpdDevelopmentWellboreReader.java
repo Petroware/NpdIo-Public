@@ -17,7 +17,7 @@ import no.petroware.npdio.NpdReader;
 public final class NpdDevelopmentWellboreReader extends NpdReader<NpdDevelopmentWellbore>
 {
   /** URL to the NPD file containing the data. */
-  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en";
+  private static final String URL = "https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/wellbore_development_all&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=80.239.106.206&CultureCode=en";
 
   /**
    * The development wellbore properties and their order is as follows:

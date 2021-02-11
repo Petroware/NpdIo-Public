@@ -17,7 +17,7 @@ import no.petroware.npdio.NpdReader;
 public final class NpdPipelineReader extends NpdReader<NpdPipeline>
 {
   /** URL to the NPD file containing the data. */
-  private static final String URL = "https://npdfactpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en";
+  private static final String URL = "https://factpages.npd.no/ReportServer_npdpublic?/FactPages/TableView/tuf_pipeline_overview&rs:Command=Render&rc:Toolbar=false&rc:Parameters=f&rs:Format=CSV&Top100=false&IpAddress=92.221.71.51&CultureCode=en";
 
   /**
    * The pipline properties and their order is as follows:
